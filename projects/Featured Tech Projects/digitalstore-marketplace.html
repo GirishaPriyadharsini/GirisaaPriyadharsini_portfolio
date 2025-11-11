@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalStore Marketplace - Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        :root {
+            --primary-color: #4e73df;
+            --secondary-color: #6c757d;
+            --accent-color: #36b9cc;
+            --light-bg: #f8f9fc;
+            --dark-text: #2e3a59;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), #224abe);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tech-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        
+        .diagram-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .screenshot {
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .screenshot:hover {
+            transform: scale(1.02);
+        }
+        
+        .back-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: #5a6268;
+        }
+        
+        .download-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .download-btn:hover {
+            background-color: #2a96a5;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 600;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .nav-tabs .nav-link {
+            color: var(--secondary-color);
+        }
+        
+        .table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .highlight-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .architecture-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .architecture-box h5 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Swiper Styles */
+        .swiper-container {
+            width: 100%;
+            height: 400px;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .swiper-slide {
+            text-align: center;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .swiper-slide .card-body {
+            padding: 15px;
+        }
+        
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            margin-top: -25px;
+        }
+        
+        .swiper-button-next {
+            right: 10px;
+        }
+        
+        .swiper-button-prev {
+            left: 10px;
+        }
+        
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: var(--primary-color);
+        }
+        
+        .swiper-grid-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .swiper-slide img {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide img:hover {
+            transform: scale(1.02);
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="project-header text-center">
+        <div class="container">
+            <span class="badge bg-light text-primary mb-3">Full-Stack Web Application</span>
+            <h1 class="display-4 fw-bold">DigitalStore Marketplace</h1>
+            <p class="lead mb-4">A Multi-Vendor Digital Product Marketplace with AI Recommendations</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="/index.html" class="btn btn-light btn-lg">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Portfolio
+                </a>
+                <a href="/report/Girisaa full report.pdf" class="btn btn-warning btn-lg" download>
+                    <i class="bi bi-download me-2"></i>Download Full Report
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Project Overview -->
+        <section class="mb-5">
+            <h2 class="section-title">Project Overview</h2>
+            
+            <!-- Image Swiper/Carousel -->
+            <div class="swiper-grid-container">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1: Home Page -->
+                        <div class="swiper-slide">
+                            <div class="card border-0 h-100">
+                                <img src="/projects/Featured Tech Projects/digitalstore images/Homepage.jpg" class="card-img-top" alt="DigitalStore Home Page">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">Home Page</h6>
+                                    <p class="card-text text-muted small">Landing page with featured products and seller registration</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Seller Dashboard -->
+                        <div class="swiper-slide">
+                            <div class="card border-0 h-100">
+                                <img src="/projects/Featured Tech Projects/digitalstore images/Sellerdashboard.jpg" class="card-img-top" alt="Seller Dashboard">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">Seller Dashboard</h6>
+                                    <p class="card-text text-muted small">Overview of products, sales, and analytics</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: Product Upload -->
+                        <div class="swiper-slide">
+                            <div class="card border-0 h-100">
+                                <img src="/projects/Featured Tech Projects/digitalstore images/upload page.png" class="card-img-top" alt="Product Upload Interface">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">Product Upload</h6>
+                                    <p class="card-text text-muted small">Seller interface for adding new digital products</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4: Admin Panel -->
+                        <div class="swiper-slide">
+                            <div class="card border-0 h-100">
+                                <img src="/projects/Featured Tech Projects/digitalstore images/admin.png" class="card-img-top" alt="Admin Dashboard">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">Admin Dashboard</h6>
+                                    <p class="card-text text-muted small">Platform management and user oversight</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5: Checkout Process -->
+                        <div class="swiper-slide">
+                            <div class="card border-0 h-100">
+                                <img src="/projects/Featured Tech Projects/digitalstore images/checkout.png" class="card-img-top" alt="Checkout Process">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">Checkout & Payment</h6>
+                                    <p class="card-text text-muted small">Secure payment integration with Razorpay</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 6: Buyer page -->
+                        <div class="swiper-slide">
+                            <div class="card border-0 h-100">
+                                <img src="/projects/Featured Tech Projects/digitalstore images/buyer dashboard.png" class="card-img-top" alt="Checkout Process">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">Buyer Dashboard</h6>
+                                    <p class="card-text text-muted small">The buyer's dashboard updates to show their new purchases and total downloads.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Slide 7: Explore page -->
+                        <div class="swiper-slide">
+                            <div class="card border-0 h-100">
+                                <img src="/projects/Featured Tech Projects/digitalstore images/explore.png" class="card-img-top" alt="Checkout Process">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">Product exploring</h6>
+                                    <p class="card-text text-muted small">The main product browsing page for buyers, with filters and a search bar.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Slide 9: Cart Page -->
+                        <div class="swiper-slide">
+                            <div class="card border-0 h-100">
+                                <img src="/projects/Featured Tech Projects/digitalstore images/Picture9.png" class="card-img-top" alt="Digital Library">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">Shopping Cart</h6>
+                                    <p class="card-text text-muted small">The page where the user can review items in their cart and proceed to checkout.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Slide 8: Recommendation side -->
+                        <div class="swiper-slide">
+                            <div class="card border-0 h-100">
+                                <img src="/projects/Featured Tech Projects/digitalstore images/recommendation.png" class="card-img-top" alt="Checkout Process">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title">Recommendation side</h6>
+                                    <p class="card-text text-muted small">AI-based recommendation System recommends other products a user might like, combining content-based and collaborative filtering models for accurate, real-time suggestions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="lead">DigitalStore is a comprehensive multi-vendor digital marketplace that enables creators to upload, manage, and sell digital products like eBooks, templates, and software. The platform includes a complete e-commerce ecosystem with secure payments, instant digital delivery, and AI-powered recommendations.</p>
+                    
+                    <div class="highlight-box">
+                        <h5>Key Features</h5>
+                        <ul class="feature-list">
+                            <li>Multi-vendor architecture with separate dashboards</li>
+                            <li>Secure payment integration with Razorpay</li>
+                            <li>AI-based hybrid recommendation system</li>
+                            <li>Digital product management with download limits</li>
+                            <li>Admin panel for platform management</li>
+                            <li>Email verification and OTP authentication</li>
+                            <li>Responsive design for all devices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Project Details</h5>
+                            <p><strong>Duration:</strong> 3 months</p>
+                            <p><strong>Role:</strong> Full-Stack Developer</p>
+                            <p><strong>Status:</strong> Completed</p>
+                            <p><strong>Academic Project:</strong> M.Sc. Computer Science</p>
+                            
+                            <h6 class="mt-4">Technologies Used</h6>
+                            <div class="mt-2">
+                                <span class="tech-badge">PHP</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">Bootstrap</span>
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Razorpay API</span>
+                                <span class="tech-badge">Machine Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <section class="mb-4">
+            <ul class="nav nav-tabs" id="projectTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="problem-tab" data-bs-toggle="tab" data-bs-target="#problem" type="button" role="tab">Problem Statement</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="solution-tab" data-bs-toggle="tab" data-bs-target="#solution" type="button" role="tab">Solution</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="features-tab" data-bs-toggle="tab" data-bs-target="#features" type="button" role="tab">Features</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="architecture-tab" data-bs-toggle="tab" data-bs-target="#architecture" type="button" role="tab">Architecture</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="implementation-tab" data-bs-toggle="tab" data-bs-target="#implementation" type="button" role="tab">Implementation</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="results-tab" data-bs-toggle="tab" data-bs-target="#results" type="button" role="tab">Results</button>
+                </li>
+            </ul>
+            
+            <div class="tab-content p-4 border border-top-0 rounded-bottom" id="projectTabsContent">
+                <!-- Problem Statement Tab -->
+                <div class="tab-pane fade show active" id="problem" role="tabpanel">
+                    <h3 class="mb-4">Problem Statement</h3>
+                    <p>Existing digital marketplaces like Gumroad and Payhip present several challenges for Indian micro-sellers:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="architecture-box">
+                                <h5><i class="bi bi-x-circle text-danger me-2"></i>Limited Payment Support</h5>
+                                <p>Global platforms rely on PayPal or Stripe, which are not convenient for Indian buyers who prefer UPI, Net Banking, and Razorpay.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="architecture-box">
+                                <h5><i class="bi bi-x-circle text-danger me-2"></i>Complex Onboarding</h5>
+                                <p>Small creators face difficult verification and tax setup processes, making it hard to start selling quickly.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="architecture-box">
+                                <h5><i class="bi bi-x-circle text-danger me-2"></i>No Localization</h5>
+                                <p>Platforms lack support for regional languages, INR pricing, and GST compliance features needed for Indian markets.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="architecture-box">
+                                <h5><i class="bi bi-x-circle text-danger me-2"></i>High Fees & Delays</h5>
+                                <p>Dependence on international accounts leads to high transaction fees, payment delays, and reduced profits for sellers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solution Tab -->
+                <div class="tab-pane fade" id="solution" role="tabpanel">
+                    <h3 class="mb-4">Proposed Solution</h3>
+                    <p>DigitalStore Marketplace was designed specifically to address the challenges faced by Indian digital creators and buyers with the following key solutions:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Built for Indian Creators</h5>
+                                    <p class="card-text">Tailored specifically for small and micro-sellers in India with simplified onboarding and localized features.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Seamless Payment Integration</h5>
+                                    <p class="card-text">Supports INR transactions with Razorpay integration, offering UPI, Net Banking, Cards, and Wallet options.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">Simplified Seller Onboarding</h5>
+                                    <p class="card-text">Quick registration using Email OTP verification instead of complex tax or banking setups.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">AI Recommendation System</h5>
+                                    <p class="card-text">Hybrid recommendation engine combining content-based and collaborative filtering for personalized suggestions.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Features Tab -->
+                <div class="tab-pane fade" id="features" role="tabpanel">
+                    <h3 class="mb-4">System Features</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-person-gear display-4 text-primary mb-3"></i>
+                                    <h5 class="card-title">Admin Module</h5>
+                                    <ul class="text-start mt-3">
+                                        <li>Dashboard with platform analytics</li>
+                                        <li>Seller & buyer management</li>
+                                        <li>Product approval system</li>
+                                        <li>Payment & payout tracking</li>
+                                        <li>System configuration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-shop display-4 text-primary mb-3"></i>
+                                    <h5 class="card-title">Seller Module</h5>
+                                    <ul class="text-start mt-3">
+                                        <li>Registration & store setup</li>
+                                        <li>Product upload & management</li>
+                                        <li>Sales analytics & reports</li>
+                                        <li>Order tracking</li>
+                                        <li>Payout management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-cart display-4 text-primary mb-3"></i>
+                                    <h5 class="card-title">Buyer Module</h5>
+                                    <ul class="text-start mt-3">
+                                        <li>Browse & search products</li>
+                                        <li>Secure checkout process</li>
+                                        <li>Instant digital downloads</li>
+                                        <li>Order history & tracking</li>
+                                        <li>Product reviews & ratings</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Architecture Tab -->
+                <div class="tab-pane fade" id="architecture" role="tabpanel">
+                    <h3 class="mb-4">System Architecture</h3>
+                    
+                    <div class="diagram-container mb-4">
+                        <h5 class="mb-3">High-Level Architecture</h5>
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-3">
+                                <div class="architecture-box">
+                                    <h5>Admin Panel</h5>
+                                    <p>Dashboard, User Management, Product Monitoring, Payment Tracking</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="architecture-box">
+                                    <h5>Seller Dashboard</h5>
+                                    <p>Product Upload, Sales Analytics, Order Management, Payouts</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="architecture-box">
+                                    <h5>Buyer Interface</h5>
+                                    <p>Browse Products, Cart, Checkout, Payment, Downloads</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="diagram-container">
+                        <h5 class="mb-3">Database Schema</h5>
+                        <p>The system uses a relational database with the following key tables:</p>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Table Name</th>
+                                        <th>Purpose</th>
+                                        <th>Key Fields</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>users</td>
+                                        <td>Stores all user accounts</td>
+                                        <td>user_id, email, password, role</td>
+                                    </tr>
+                                    <tr>
+                                        <td>products</td>
+                                        <td>Digital product information</td>
+                                        <td>product_id, seller_id, product_name, price</td>
+                                    </tr>
+                                    <tr>
+                                        <td>orders</td>
+                                        <td>Purchase transactions</td>
+                                        <td>order_id, buyer_id, total_amount, status</td>
+                                    </tr>
+                                    <tr>
+                                        <td>order_items</td>
+                                        <td>Individual products in orders</td>
+                                        <td>order_item_id, order_id, product_id, quantity</td>
+                                    </tr>
+                                    <tr>
+                                        <td>payouts</td>
+                                        <td>Seller payment records</td>
+                                        <td>payout_id, seller_id, amount, status</td>
+                                    </tr>
+                                    <tr>
+                                        <td>reviews</td>
+                                        <td>Product ratings and feedback</td>
+                                        <td>review_id, product_id, buyer_id, rating</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Implementation Tab -->
+                <div class="tab-pane fade" id="implementation" role="tabpanel">
+                    <h3 class="mb-4">Implementation Details</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Frontend Technologies</h5>
+                            <ul>
+                                <li><strong>HTML5:</strong> Semantic structure for web pages</li>
+                                <li><strong>CSS3:</strong> Responsive design with modern styling</li>
+                                <li><strong>JavaScript:</strong> Client-side interactivity and validation</li>
+                                <li><strong>Bootstrap:</strong> UI framework for responsive layouts</li>
+                            </ul>
+                            
+                            <h5 class="mt-4">Backend Technologies</h5>
+                            <ul>
+                                <li><strong>PHP:</strong> Server-side logic and business rules</li>
+                                <li><strong>MySQL:</strong> Relational database management</li>
+                                <li><strong>Razorpay API:</strong> Payment gateway integration</li>
+                                <li><strong>PHPMailer:</strong> Email sending for OTP verification</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>AI Recommendation System</h5>
+                            <p>The platform includes a hybrid recommendation engine built with Python:</p>
+                            <ul>
+                                <li><strong>Content-based filtering:</strong> Uses product attributes (category, tags)</li>
+                                <li><strong>Collaborative filtering:</strong> Analyzes buyer behavior and purchases</li>
+                                <li><strong>Libraries used:</strong> Pandas, NumPy, Scikit-learn</li>
+                                <li><strong>Integration:</strong> Python scripts called from PHP backend</li>
+                            </ul>
+                            
+                            <h5 class="mt-4">Security Features</h5>
+                            <ul>
+                                <li>Password hashing with password_hash()</li>
+                                <li>Email OTP verification</li>
+                                <li>Session management with secure cookies</li>
+                                <li>Input validation and sanitization</li>
+                                <li>SQL injection prevention</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results Tab -->
+                <div class="tab-pane fade" id="results" role="tabpanel">
+                    <h3 class="mb-4">Testing & Results</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Testing Methodology</h5>
+                            <p>The system underwent comprehensive testing including:</p>
+                            <ul>
+                                <li><strong>Unit Testing:</strong> Individual functions and modules</li>
+                                <li><strong>System Testing:</strong> End-to-end workflow validation</li>
+                                <li><strong>Validation Testing:</strong> User acceptance testing</li>
+                                <li><strong>Security Testing:</strong> Vulnerability assessment</li>
+                            </ul>
+                            
+                            <h5 class="mt-4">Key Test Results</h5>
+                            <ul>
+                                <li>All user authentication functions passed security tests</li>
+                                <li>Payment gateway integration worked correctly in test mode</li>
+                                <li>Digital file delivery system functioned as expected</li>
+                                <li>AI recommendation system generated accurate suggestions</li>
+                                <li>Platform handled multiple concurrent users smoothly</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Performance Metrics</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th>Metric</th>
+                                            <th>Result</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Database Connection</td>
+                                            <td><span class="badge bg-success">Successful</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Products Fetched</td>
+                                            <td>9 active products</td>
+                                        </tr>
+                                        <tr>
+                                            <td>User Interactions Processed</td>
+                                            <td>13 interactions</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Recommendations Generated</td>
+                                            <td>6 hybrid recommendations</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Payment Success Rate</td>
+                                            <td>100% in test environment</td>
+                                        </tr>
+                                        <tr>
+                                            <td>File Download Success</td>
+                                            <td>100% with expiry controls</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5>Conclusion</h5>
+                        <div class="highlight-box">
+                            <p>The DigitalStore Marketplace successfully provides a unified platform that enables sellers to easily register, upload, and manage their digital products while allowing buyers to browse, purchase, and download files securely in real-time. With features like seller dashboards, OTP verification, and structured product uploads, the system ensures both convenience and reliability.</p>
+                            <p class="mb-0">This project demonstrates how digital file commerce can be simplified into a professional, user-friendly solution that benefits both creators and consumers, with particular focus on the needs of the Indian market.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center py-5 mb-5">
+            <h3 class="mb-4">Want to see the full technical documentation?</h3>
+            <a href="/report/Girisaa full report.pdf" class="btn download-btn btn-lg" download>
+                <i class="bi bi-download me-2"></i>Download Complete Project Report
+            </a>
+            <p class="mt-3 text-muted">Includes database schema, and implementation details</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">DigitalStore Marketplace Project &copy; 2025 | M.Sc. Computer Science</p>
+            <p class="mb-0">Manonmaniam Sundaranar University</p>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+            }
+        });
+
+        // Add click event to show full image
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.swiper-slide img');
+            
+            images.forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    showFullImage(this.src, this.alt);
+                });
+            });
+
+            function showFullImage(src, alt) {
+                // Create modal overlay
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 9999;
+                    cursor: pointer;
+                `;
+
+                // Create full image element
+                const fullImg = document.createElement('img');
+                fullImg.src = src;
+                fullImg.alt = alt;
+                fullImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+                `;
+
+                // Create close button
+                const closeBtn = document.createElement('button');
+                closeBtn.innerHTML = '&times;';
+                closeBtn.style.cssText = `
+                    position: absolute;
+                    top: 20px;
+                    right: 30px;
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 40px;
+                    cursor: pointer;
+                    z-index: 10000;
+                    width: 50px;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                `;
+
+                // Create image caption
+                const caption = document.createElement('div');
+                caption.textContent = alt;
+                caption.style.cssText = `
+                    position: absolute;
+                    bottom: 20px;
+                    left: 0;
+                    width: 100%;
+                    text-align: center;
+                    color: white;
+                    font-size: 18px;
+                    padding: 10px;
+                    background: rgba(0, 0, 0, 0.7);
+                `;
+
+                // Add elements to overlay
+                overlay.appendChild(fullImg);
+                overlay.appendChild(closeBtn);
+                overlay.appendChild(caption);
+
+                // Add to body
+                document.body.appendChild(overlay);
+
+                // Close functionality
+                function closeModal() {
+                    document.body.removeChild(overlay);
+                    document.removeEventListener('keydown', handleEscape);
+                }
+
+                function handleEscape(e) {
+                    if (e.key === 'Escape') {
+                        closeModal();
+                    }
+                }
+
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === overlay || e.target === closeBtn) {
+                        closeModal();
+                    }
+                });
+
+                document.addEventListener('keydown', handleEscape);
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

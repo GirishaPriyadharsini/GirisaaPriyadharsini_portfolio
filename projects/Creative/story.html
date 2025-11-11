@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debut Novel - Read Sample</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3436;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark-color);
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(52, 73, 94, 0.8)), 
+                        url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+        }
+        
+        .book-cover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            transition: transform 0.3s;
+            max-width: 100%;
+        }
+        
+        .book-cover:hover {
+            transform: scale(1.03);
+        }
+        
+        .book-info {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .book-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6c757d;
+        }
+        
+        .book-description {
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary-custom {
+            background: var(--primary-color);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary-custom:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-amazon {
+            background: #ff9900;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-amazon:hover {
+            background: #e68900;
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-custom:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .pdf-viewer-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .viewer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .reviews-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        
+        .review-card {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .reviewer {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .rating {
+            color: #ffc107;
+        }
+        
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 50px 0;
+            }
+            
+            .pdf-viewer {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" style="color: var(--primary-color);">
+                <i class="bi bi-book"></i> Novelist
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center">
+                    <img src="/projects/Creative/novel image.png" 
+                         alt="Book Cover" class="book-cover">
+                </div>
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">Taken By Love</h1>
+                    <p class="lead mb-4"><strong> Kyren Thavorn </strong>is a powerful mafia lord by night, a respected CEO by day, and a man who has perfected the art of keeping his life neatly segmented, until a spunky, chaotic college student barges in.
+
+He meets <strong>Aiden Charoen:</strong> a confident and sassy college student, living without a care, shining brightly in a world that can't seem to keep up with him.
+
+Their first meeting is a comedy of errors, but the sparks are undeniable. Soon, their boss-and-intern relationship shifts into a thrilling slow burn, leaving Kyren with a growing desire to claim the one man who doesn't flinch in the face of his formidable presence.
+
+Kyren will burn the world for him. But when the truth of the mafia lord's life comes out, will Aiden still be standing by his side?</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#read-sample" class="btn btn-primary-custom">
+                            <i class="bi bi-file-earmark-pdf"></i> Read Sample
+                        </a>
+                        <a href="https://a.co/d/8I7Q4qn" target="_blank" class="btn btn-amazon">
+                            <i class="bi bi-bag"></i> Buy on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Details Section -->
+    <section class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="book-info">
+                    <h2 class="book-title">About the Book</h2>
+                    
+                    <div class="book-meta">
+                        <div class="meta-item">
+                            <i class="bi bi-calendar"></i>
+                            <span>Published: October 21, 2025</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="bi bi-file-text"></i>
+                            <span>Pages: 435</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="bi bi-tags"></i>
+                            <span>Genre: Rom-com</span>
+                        </div>
+                        <div class="meta-item">
+                        <i class="bi bi-heart"></i>
+                        <span>LGBTQ+ Romance</span>
+                        </div>
+                    </div>
+                    
+                    <p class="book-description">
+    He holds dominion over the underworld.
+    But when it comes to him, he melts.
+</p>
+<p class="book-description">
+    A mafia romance with banter, slower-burn tension, soft touches, and a man who’s dangerous to the world except the one he loves.
+</p>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+                        <a href="#read-sample" class="btn btn-primary-custom me-md-3">
+                            <i class="bi bi-file-earmark-pdf"></i> Read Sample PDF
+                        </a>
+                        <a href="https://a.co/d/8I7Q4qn" target="_blank" class="btn btn-amazon">
+                            <i class="bi bi-bag"></i> Purchase on Amazon
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PDF Viewer Section -->
+    <section id="read-sample" class="container">
+        <div class="pdf-viewer-container">
+            <div class="viewer-header">
+                <h3 class="mb-0">Sample Chapter - Taken By Love</h3>
+                <div>
+                    <a href="https://a.co/d/8I7Q4qn" target="_blank" class="btn btn-amazon">
+                        <i class="bi bi-bag"></i> Buy Full Book
+                    </a>
+                </div>
+            </div>
+            <iframe class="pdf-viewer" src="/report/stories/Taken by love full script.pdf" type="application/pdf"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>About the Author</h5>
+                    <p>A long-time Wattpad writer, I have spent years sharing stories that explore the balance between love and chaos, earning the hearts of readers who crave emotion, humor, and depth in equal measure.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Connect</h5>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/thecozybookloft_?igsh=aDhja3FwaGF2cHJt"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p>&copy; 2025 Novelist. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

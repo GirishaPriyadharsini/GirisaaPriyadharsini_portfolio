@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Portfolio | Girisaa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-bg: #f8f9fa;
+    --dark-text: #2c3e50;
+    --light-text: #7f8c8d;
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: white !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.85) !important;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 1rem !important;
+    border-radius: 6px;
+    margin: 0 0.2rem;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: white !important;
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a2530 100%);
+    color: white;
+    padding: 120px 0 100px;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-section .lead {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+.section-padding {
+    padding: 4rem 0;
+}
+
+/* Section Titles */
+.section-title {
+    position: relative;
+    margin-bottom: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+/* Cards */
+.design-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: var(--transition);
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.design-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.design-card:hover .card-img-top {
+    transform: scale(1.03);
+}
+
+.card-body {
+    padding: 1.5rem !important;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 220px);
+}
+
+.card-title {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+.card-text {
+    color: var(--light-text);
+    flex-grow: 1;
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+/* Skill Badges */
+.skill-badge {
+    display: inline-block;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Buttons */
+.btn-primary-custom {
+    background-color: var(--secondary-color);
+    border: none;
+    padding: 10px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition);
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin-top: auto;
+}
+
+.btn-primary-custom:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+    color: white;
+}
+#back-to-portfolio {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 18px;
+    border-width: 2px;
+    border-radius: 8px;
+
+    font-weight: 600;
+    font-size: 15px;
+
+    background-color: #ffffff;
+    color: #555;
+    border-color: #cfcfcf;
+
+    transition: all 0.25s ease-in-out;
+}
+
+/* Hover effect for more premium look */
+#back-to-portfolio:hover {
+    background-color: #f1f1f1;
+    color: #333;
+    border-color: #999;
+    transform: translateX(-3px);
+}
+
+/* Make sure icon aligns perfectly */
+#back-to-portfolio i {
+    font-size: 14px;
+    line-height: 1;
+}
+#project-detail {
+    padding-top: 40px; /* adjust to 30–60px as needed */
+}
+
+
+/* Filter Buttons */
+.filter-buttons {
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.filter-btn {
+    background: none;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 10px 24px;
+    border-radius: 30px;
+    margin: 0 6px 12px;
+    transition: var(--transition);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+}
+
+/* Project Detail */
+.project-detail {
+    margin-top: 2rem;
+    padding: 2.5rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 4rem 0 1.5rem;
+    margin-top: 4rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.3rem;
+    margin: 0 12px;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--secondary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.back-to-top:hover {
+    background: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.back-to-top.show {
+    opacity: 1;
+}
+
+/* Utility Classes */
+.bg-light-custom {
+    background-color: var(--light-bg);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Grid and Spacing */
+.container {
+    max-width: 1200px;
+}
+
+.row.g-4 {
+    margin: 0 -15px;
+}
+
+.col-md-6, .col-lg-4 {
+    padding: 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 80px 0 60px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.25rem;
+    }
+    
+    .card-body {
+        padding: 1.25rem !important;
+    }
+    
+    .filter-btn {
+        padding: 8px 20px;
+        margin: 0 4px 8px;
+        font-size: 0.9rem;
+    }
+    
+    .project-detail {
+        padding: 1.5rem;
+    }
+}
+
+a, button, .btn {
+    transition: var(--transition);
+}
+
+.card-body .btn-primary-custom {
+    align-self: flex-start;
+    margin-top: 1rem;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">Girisaa Priyadharsini</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/projects/design/designportfolio.html">Design Portfolio</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Design Portfolio</h1>
+            <p class="lead mb-4">Showcasing my creative work in branding, posters, and book cover design</p>
+            <a href="#portfolio" class="btn btn-primary-custom">View Portfolio</a>
+        </div>
+    </section>
+    
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding bg-light-custom">
+        <div class="container">
+            <h2 class="section-title text-center">My Design Projects</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons text-center">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="book-covers">Book Covers</button>
+                <button class="filter-btn" data-filter="posters">Posters</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="row g-4 portfolio-grid">
+                <!-- Book Cover 1 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="book-covers">
+                    <div class="design-card">
+                        <img src="/coverprojects/final work.png" class="card-img-top" alt="Fantasy Book Cover">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">The Shadow of the False Chosen</h4>
+                            <p class="card-text">Book cover design for a fantasy/paranormal novel, featuring a dramatic Yin and Yang concept with opposing wolves
+                to visually represent the central conflict and themes of balance and deception.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">Conceptual Design</span>
+                                <span class="skill-badge">Visual Storytelling</span>
+                                <span class="skill-badge">High-Contrast Design</span>
+                                <span class="skill-badge">Atmospheric Lighting</span>
+                                <span class="skill-badge">Typography</span>
+
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="1">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Book Cover 2 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="book-covers">
+                    <div class="design-card">
+                        <img src="/coverprojects/The Boy Who Craved the Grave.png" class="card-img-top" alt="Mystery Thriller Cover">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">The Boy Who Craved the Grave</h4>
+                            <p class="card-text">Horror/Suspense novel cover design, utilizing dark, moody lighting and unsettling imagery (the child, the dismembered heads)
+                to immediately convey the genre and the psychological terror within the story.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">Visual Storytelling</span>
+                                <span class="skill-badge">Atmospheric Lighting</span>
+                                <span class="skill-badge">Horror Genre Targeting</span>
+                                <span class="skill-badge">Image Manipulation</span>
+                                <span class="skill-badge">Typography</span>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="2">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                   <!-- poster 1 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="posters">
+                    <div class="design-card">
+                        <img src="/coverprojects/video editing service.png" class="card-img-top" alt="Mystery Thriller Cover">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Video Editing Services Promotional Graphic</h4>
+                            <p class="card-text">A visually compelling service thumbnail designed for platforms like Fiverr or Upwork,
+                                effectively communicating key service offerings (Color Grading, Motion Graphics, etc.) and targeting 
+                                YouTube and Instagram creators.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">Visual Hierarchy</span>
+                                <span class="skill-badge">Marketing Design</span>
+                                <span class="skill-badge">Brand Communication</span>
+                                <span class="skill-badge">Typography</span>
+                                <span class="skill-badge">Layout Design</span>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="3">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                   <!-- Poster 2 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="posters">
+                    <div class="design-card">
+                        <img src="/coverprojects/Beige Digital Planner Promotion Instagram Post.png" class="card-img-top" alt="Mystery Thriller Cover">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">2025 Digital Planner Sales Post (Instagram)</h4>
+                            <p class="card-text">Social media marketing graphic designed to promote a minimalist digital planner. The design uses soft, 
+                on-brand colors and clear  <strong>Call-to-Action</strong> elements to drive sales, highlighting key features like the 
+                monthly PDF format and page count.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">E-commerce Design</span>
+                                <span class="skill-badge">Minimalism</span>
+                                <span class="skill-badge">Color Theory</span>
+                                <span class="skill-badge">Product Mockups</span>
+                                <span class="skill-badge">Visual Hierarchy</span>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="4">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                   <!-- Book Cover 3 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="book-covers">
+                    <div class="design-card">
+                        <img src="/coverprojects/1.png" class="card-img-top" alt="Mystery Thriller Cover">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Echoes Through the Doors of Time (Book 1)</h4>
+                            <p class="card-text">Book cover design for a fantasy fanfiction series. The conceptual design centers on a glowing, 
+                            open doorway to symbolize time travel and a journey into the <strong>Skyrim</strong> universe, establishing 
+                            an epic and mysterious tone for the series' premise.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">Conceptual Design</span>
+                                <span class="skill-badge">Atmospheric Lighting</span>
+                                <span class="skill-badge">Typography</span>
+                                <span class="skill-badge">Adobe Express</span>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="5">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                   <!-- poster 3 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="posters">
+                    <div class="design-card">
+                        <img src="/coverprojects/44.png" class="card-img-top" alt="Mystery Thriller Cover">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Ghostwriting Services Promotional Poster</h4>
+                            <p class="card-text">A promotional graphic designed to advertise ghostwriting and custom book cover services. The design uses a 
+                 <strong>mood board composition</strong> with distinct black and white imagery (wolf, fantasy couple, character portrait) 
+                and a dramatic, dark aesthetic to target fantasy, romance, and supernatural fiction markets.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">Service Branding</span>
+                                <span class="skill-badge">Mood Board Design</span>
+                                <span class="skill-badge">Visual Curation</span>
+                                <span class="skill-badge">Typography</span>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="6">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                     <!-- poster Cover 4 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="posters">
+                    <div class="design-card">
+                        <img src="/coverprojects/Mix tape template.png" class="card-img-top" alt="Mystery Thriller Cover">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Mixtape/Single Album Cover Template</h4>
+                            <p class="card-text">Album art template designed to convey themes of heartbreak and rawness. The design utilizes a high-contrast, 
+                street-art aesthetic, combining rough spray-paint textures and a shattered glass effect to create a 
+                strong, immediate emotional impact.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">Visual Texture</span>
+                                <span class="skill-badge">High-Contrast Design</span>
+                                <span class="skill-badge">Typography</span>
+                                <span class="skill-badge">Conceptual Design</span>
+                                <span class="skill-badge">Adobe Express</span>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="7">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                  <!-- Book Cover 4 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="book-covers">
+                    <div class="design-card">
+                        <img src="/coverprojects/Azkaban's Child/1.png" class="card-img-top" alt="Mystery Thriller Cover">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Azkaban's Child: The Price of Love</h4>
+                            <p class="card-text">Dark Fantasy/Gothic Romance cover design. The composition uses cool blue tones, neon-like typography, 
+                and symbolic imagery (the castle and the central glowing rose) to establish a mood of conflict, magic, 
+                and forbidden romance.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">Gothic Design</span>
+                                <span class="skill-badge">Atmospheric Lighting</span>
+                                <span class="skill-badge">Typography</span>
+                                <span class="skill-badge">Conceptual Design</span>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="8">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book cover 5 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="book-covers">
+                    <div class="design-card">
+                        <img src="/coverprojects/Twinlight Sentinel.png" class="card-img-top" alt="Art Exhibition Poster">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Twilight's Sentinel (Full Wrap-Around Design)</h4>
+                            <p class="card-text">A complete book cover design (front, spine, and back) for a Dark Fantasy novel. It utilizes  <strong>deep black and vivid red</strong> to create high contrast, emphasizing the main character's mystical eyes and the central theme of a battle between 
+                            light and darkness.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">Full-Cover Layout</span>
+                                <span class="skill-badge">High-Contrast Design</span>
+                                <span class="skill-badge">Fantasy Genre Targeting</span>
+                                <span class="skill-badge">Typography</span>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="9">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book cover 6 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="book-covers">
+                    <div class="design-card">
+                        <img src="/coverprojects/when lies.png" class="card-img-top" alt="Art Exhibition Poster">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Where My Lies Meet Your Love (Full Cover Design)</h4>
+                            <p class="card-text">Full wrap-around cover (front, spine, and back) for a Contemporary M/M Romance novel. The design features 
+                prominent character art against an urban skyline, effectively using the <strong>blurb</strong> and  <strong>genre tags</strong> on the back to provide complete marketing communication for the book's dual themes of identity and workplace romance.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">Full-Cover Layout</span>
+                                <span class="skill-badge">Genre Visuals (MM Romance)</span>
+                                <span class="skill-badge">Information Hierarchy</span>
+                                <span class="skill-badge">Urban Aesthetic</span>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="10">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                   <!-- Book Cover 7 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="book-covers">
+                    <div class="design-card">
+                        <img src="/coverprojects/Shadowed Syndicate (Mafia Theme) back cover/1.png" class="card-img-top" alt="Mystery Thriller Cover">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Shadowed Syndicate: Bloodlines of Betrayal</h4>
+                            <p class="card-text">Intense thriller/crime novel cover. The design uses a layered, cinematic composition with a muted color palette 
+                and sharp diagonal lines to convey tension, betrayal, and a sense of underlying danger, featuring strong 
+                character focus and symbolic elements like the dagger.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">Cinematic Composition</span>
+                                <span class="skill-badge">Mood & Tone Setting</span>
+                                <span class="skill-badge">Typography</span>
+                                <span class="skill-badge">Image Manipulation</span>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="11">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Book Cover 8 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="book-covers">
+                    <div class="design-card">
+                        <img src="/coverprojects/Moonlit Heart.png" class="card-img-top" alt="Mystery Thriller Cover">
+                        <div class="card-body p-4">
+                            <h4 class="card-title">Healing Hearts in the Darkness</h4>
+                            <p class="card-text">Contemporary Romance/Drama novel cover design. The composition utilizes an  <strong>urban cityscape backdrop</strong> and  <strong>layered character imagery</strong> to convey emotional connection and conflict. The sunset/twilight colors and 
+                high-contrast typography create a dramatic, cinematic mood typical of the genre.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Canva</span>
+                                <span class="skill-badge">Compositing & Retouching</span>
+                                <span class="skill-badge">Genre Visuals (Romance/YA)</span>
+                                <span class="skill-badge">Cinematic Layout</span>
+                                <span class="skill-badge">Typography</span>
+                            </div>
+                              <div class="mt-4">
+                                <button class="btn btn-primary-custom view-project" data-project="12">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Detail Section -->
+    <section id="project-detail" class="section-padding d-none">
+        <div class="container">
+            <button id="back-to-portfolio" class="btn btn-outline-secondary mb-4">
+                <i class="fas fa-arrow-left me-2"></i>Back to Portfolio
+            </button>
+            
+            <div class="project-detail">
+                <div id="detail-content">
+                    <!-- Project details will be loaded here dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Your Name</h5>
+                    <p>Creative Designer specializing in branding, posters, and book cover design.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Connect With Me</h5>
+                    <div class="social-links mt-3">
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="text-center">
+                <p>&copy; 2025 Girisaa Priyadharsini.M . All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Project data
+        const projects = {
+            1: {
+                title: "The Shadow of the False Chosen",
+                category: "Fantasy Book Covers",
+                description: "Cover design for a fantasy novel, utilizing the Yin and Yang concept with opposing wolves to visually symbolize duality, balance, and the conflict between light and shadow.",
+                fullDescription: "This project required creating a high-impact cover that instantly communicates a sense of epic fantasy and elemental conflict. The core design uses <strong>Conceptual Design</strong> to integrate the classic Yin and Yang symbol, dividing the canvas into cosmic red (fire/light) and deep blue (darkness/shadow) elements. The artwork features a contrasting red fox and dark wolf, representing the central character duality and the theme of the 'False Chosen.' Strong <strong>Atmospheric Lighting</strong> and bold, mythical <strong>Typography</strong> were used to enhance the magical, cinematic tone.",
+                skills: ["Conceptual Design", "Visual Storytelling", "High-Contrast Design", "Atmospheric Lighting", "Typography"],
+                images: [
+                    "/coverprojects/final work.png",
+                    "/coverprojects/mockup.png",
+                    "/coverprojects/1746207323.png"
+                ]
+            },
+            2: {
+                title: "The Boy Who Craved the Grave",
+                category: "Horror/Suspense Book Cover",
+                description: "Cover design for a horror novel, using dark lighting and unsettling imagery to create immediate psychological tension and convey the sinister nature of the story.",
+                fullDescription: "The main objective was to create a visceral cover that strongly communicates the <strong>Horror/Suspense</strong> genre to potential readers. The design relies heavily on <strong>Atmospheric Lighting</strong>, using deep shadows and a muted, dark color palette to frame the scene. <strong>Visual Storytelling</strong> is key, with the open doorway revealing a sinister child and the dismembered heads, symbolizing the themes of family tragedy and the supernatural. The text is highly contrasted and uses a distressed font for maximum impact, reinforcing the psychological terror.",
+                skills: ["Visual Storytelling", "Atmospheric Lighting", "Horror Genre Targeting", "Image Manipulation", "Typography"
+                ],
+                images: [
+                    "/coverprojects/The Boy Who Craved the Grave.png",
+                ]
+            },
+            3: {
+                title: "Video Editing Services Promotional Graphic",
+                category: "Service Marketing / Digital Poster",
+                description: "High-impact promotional thumbnail designed for freelance platforms, clearly outlining professional video editing services for content creators (YouTube, Instagram).",
+                fullDescription: "This graphic was created as a primary marketing asset to attract clients for freelance video editing services. The design uses <strong>Visual Hierarchy</strong> to prioritize the service title and the call-to-action ('ORDER NOW'). The visual elements include a custom mascot/character art to add personality and a clear list of technical proficiencies (Color Grading, Motion Graphics, Green Screen Keying). The overall composition employs a dark, professional aesthetic contrasted with bright, clear typography, making it highly effective for competitive online marketplaces.",
+                skills: ["Visual Hierarchy",
+        "Marketing Design",
+        "Brand Communication",
+        "Typography",
+        "Layout Design"],
+                images: [
+                    
+                    "/coverprojects/video editing service.png"
+                ]
+            },
+            4: {
+                title: "2025 Digital Planner Sales Post",
+                category: "Social Media Marketing / E-commerce Design",
+                description: "Promotional graphic for an Instagram feed, designed to market a '2025 Minimalist Digital Planner,' emphasizing simplicity, style, and key product features.",
+                fullDescription: "The primary goal was to create a clean, engaging graphic optimized for social media feeds to drive immediate sales. The design adheres strictly to <strong>Minimalist</strong> principles, using a restricted palette of soft pink, black, and white. <strong>E-commerce Design</strong> best practices were applied by clearly displaying the product (the planner layouts), the price (<strong>$10</strong>), and a strong <strong>Call-to-Action</strong> ('Shop now'). The use of large, clear typography and product mockups on tablets effectively showcases the digital nature and aesthetic quality of the planner.",
+                skills: ["E-commerce Design",
+        "Minimalism",
+        "Color Theory",
+        "Product Mockups",
+        "Visual Hierarchy"],
+                images: [
+                    "/coverprojects/Beige Digital Planner Promotion Instagram Post.png"
+                ]
+            },
+            5: {
+                title: "Echoes Through the Doors of Time (Book 1: Skyrim)",
+                category: "Fantasy / Time Travel Book Cover",
+                description: "Cover design for a fantasy novel series starter, using conceptual imagery (a glowing doorway) and atmospheric lighting to establish a theme of travel across time and fictional worlds.",
+                fullDescription: "The primary design challenge was to visually represent the abstract concept of 'time travel' and 'dimensional hopping' in a single image. This was achieved through <strong>Conceptual Design</strong>, focusing on the dramatic image of an open door bathed in golden, mystical light. <strong>Atmospheric Lighting</strong> emphasizes the mysterious journey ahead. The use of the recognizable <strong>Skyrim logo</strong> and the subtitle clearly targets a specific fan-fiction/gaming audience, while the ancient, styled typography reinforces the epic fantasy genre.",
+                skills: ["Conceptual Design",
+        "Atmospheric Lighting",
+        "Visual Storytelling",
+        "Typography",
+        "Genre Targeting"],
+                images: [
+                    "/coverprojects/1.png"
+                ]
+            },
+             6: {
+                title: "Ghostwriting Services Promotional Poster",
+                category: "Service Marketing / Digital Poster",
+                description: "Promotional poster designed to advertise ghostwriting services for fantasy and fiction, utilizing a dark, thematic mood board of images to appeal to the target genre readership.",
+                fullDescription: "The objective was to create a compelling visual advertisement that communicates both the writing and book cover design services offered. The design uses a <strong>mood board composition</strong> with three distinct, high-contrast, black-and-white images (wolf, disintegrating couple, male portrait) to establish a strong, dramatic tone consistent with paranormal and dark fiction. <strong>Service Branding</strong> is achieved through clear, clean typography at the top and bottom, which contrasts with the gritty visual elements. This graphic is optimized for online platforms to attract clients seeking creative fiction assistance.",
+                skills: ["Service Branding",
+        "Visual Curation",
+        "Mood Board Design",
+        "High-Contrast Design",
+        "Typography"],
+                images: [
+                    "/coverprojects/44.png"
+                ]
+            },
+             7: {
+                title: "Mixtape / Album Cover Template",
+                category: "Album Art / Music Graphics",
+                description: "High-contrast, emotionally charged album art template utilizing a street-art aesthetic (spray paint, rough texture) and a cracked heart motif to suit genres like Hip Hop or Indie-Alternative.",
+                fullDescription: "This design was conceptualized as a versatile template for artists to convey themes of heartbreak, raw emotion, or social commentary. The use of <strong>High-Contrast Design</strong> (black and near-white) combined with <strong>Visual Texture</strong> (simulating a painted, gritty wall) creates immediate visual impact and mood. The stenciled, shattered heart graphic serves as the central <strong>Conceptual Design</strong> element. The bold, heavy <strong>Typography</strong> for the song and artist names complements the raw, impactful aesthetic of the street art style.",
+                skills: ["High-Contrast Design",
+        "Visual Texture",
+        "Conceptual Design",
+        "Typography",
+        "Music Branding"],
+                images: [
+                    "/coverprojects/Mix tape template.png"
+                ]
+            },
+             8: {
+                title: "Azkaban's Child: The Price of Love",
+                category: "Dark Fantasy / Gothic Romance Book Cover",
+                description: "A cover design that establishes a gothic, mysterious mood for a dark fantasy novel, using symbolic imagery (the rose, the castle) and dramatic, neon-like lighting.",
+                fullDescription: "The challenge was to create a highly visual, emotionally charged cover that combines elements of classic fantasy and romance with a dark, modern aesthetic. The design relies on <strong>Atmospheric Lighting</strong>, using a dominant cool blue/teal palette contrasted with the striking red glow of the typography and the central rose. The iconic castle silhouette (<strong>Gothic Design</strong>) and the single, glowing red rose serve as strong visual metaphors for forbidden love and sacrifice. The neon-effect typography gives the classic fantasy setting a contemporary edge, making the cover highly attractive to the target fanfiction/dark romance audience.",
+                skills: ["Atmospheric Lighting",
+        "Gothic Design",
+        "Conceptual Design",
+        "High-Contrast Design",
+        "Typography"],
+                images: [
+                    "/coverprojects/Azkaban's Child/1.png"
+                ]
+            },
+             9: {
+                title: "Twilight's Sentinel (Full Wrap-Around Cover)",
+                category: "Dark Fantasy Book Cover",
+                description: "Comprehensive design (front, spine, and back) for a dark fantasy novel, utilizing high-contrast visuals (black, white, and red) to emphasize the main character's power and the struggle between light and darkness.",
+                fullDescription: "This project involved creating a full commercial book jacket designed for print, requiring careful attention to <strong>Full-Cover Layout</strong> for print-readiness (including the spine and barcode area). The aesthetic uses <strong>High-Contrast Design</strong>, dominated by deep black to convey darkness and vibrant red to highlight the character's mysterious power and the central theme of conflict. The design effectively uses <strong>Genre Visuals</strong> (an enigmatic warrior with glowing eyes) and integrates the book blurb, author bio, and signature on the back panel, demonstrating strong <strong>Information Hierarchy</strong>.",
+                skills: ["Full-Cover Layout",
+        "High-Contrast Design",
+        "Genre Visuals (Dark Fantasy)",
+        "Information Hierarchy",
+        "Typography"],
+                images: [
+                    "/coverprojects/Twinlight Sentinel front.png",
+                    "/coverprojects/Twinlight Sentinel.png",
+                    "/coverprojects/Twinlight Sentinel back.png"
+                ]
+            },
+             10: {
+                title: "Where My Lies Meet Your Love (Full Cover Design)",
+                category: "Contemporary Romance Book Cover",
+                description: "Complete cover design (front, spine, and back) for an M/M romance novel, featuring character art against an urban setting to establish a cinematic, contemporary drama aesthetic.",
+                fullDescription: "The primary goal was to create a professional, marketable cover for the Contemporary Romance genre, specifically targeting the M/M Romance readership. The design effectively uses <strong>Full-Cover Layout</strong> to integrate the blurb, author bio, genre tags, and the main visual across the entire jacket. The large character art is composited against a bright <strong>Urban Aesthetic</strong> (cityscape) to set the modern workplace drama tone. The <strong>Typography</strong> uses a contrasting split color effect (white and red) to emphasize the conflict/duality suggested by the title, 'Lies' vs. 'Love,' demonstrating strong <strong>Genre Visuals</strong> and <strong>Information Hierarchy</strong> on the back panel.",
+                skills: ["Full-Cover Layout",
+        "Genre Visuals (Romance)",
+        "Information Hierarchy",
+        "Cinematic Composition",
+        "Typography"],
+                images: [
+                    "/coverprojects/when lies front.png",
+                    "/coverprojects/when lies.png",
+                    "/coverprojects/when lies back.png"
+                ]
+            },
+             11: {
+                title: "Shadowed Syndicate: Bloodlines of Betrayal",
+                category: "Thriller / Crime Book Cover",
+                description: "High-tension, cinematic book cover design using layered character imagery and a muted color palette to convey themes of loyalty, betrayal, and dark syndicate drama.",
+                fullDescription: "The objective was to create a highly marketable cover that captures the complexity and conflict of the thriller genre, often associated with crime dramas or K-dramas. The design uses <strong>Cinematic Composition</strong>, layering the main characters and key visual metaphors (the dagger, the urban backdrop) with dynamic <strong>Diagonal Lines</strong> to create movement and tension. The <strong>Muted, Gritty Color Palette</strong> (monochrome with stark red accents) reinforces the dark, dangerous mood. <strong>Image Manipulation</strong> was key to seamlessly integrating the figures and the symbolic dagger into the scene, focusing the reader's attention on the imminent threat.",
+                skills: [
+                    "Cinematic Composition",
+                    "Image Manipulation",
+                    "Visual Storytelling",
+                    "High-Contrast Design",
+                    "Typography"
+                ],
+                images: [
+                    "/coverprojects/Shadowed Syndicate (Mafia Theme) back cover/1.png",
+                    "/coverprojects/Shadowed Syndicate (Mafia Theme) back cover/2.png"
+                ]
+            },
+            12: {
+               title: "Healing Hearts in the Darkness",
+                category: "Contemporary Romance / YA Drama Cover",
+                description: "A cinematic book cover design for a romance novel, using layered character imagery and a dramatic urban setting at twilight to establish a moody and emotional tone.",
+                fullDescription: "The objective was to create a highly visual cover that appeals to the <strong>Contemporary Romance</strong> and <strong>YA Drama</strong> readership, conveying both the emotional connection and the urban, serious setting. The design uses <strong>Compositing & Retouching</strong> to seamlessly blend the characters against the dramatic, sunset-lit cityscape. <strong>Cinematic Composition</strong> focuses on the gaze of the characters and the prominent, high-contrast title typography (red and white), emphasizing the conflict in the word 'DARKNESS.' The overall visual style is designed to emulate the look of popular streaming series posters, ensuring strong emotional resonance.",
+                skills: [
+                    "Compositing & Retouching",
+                    "Cinematic Composition",
+                    "Genre Visuals (Romance/YA)",
+                    "Atmospheric Lighting",
+                    "Typography"
+                ],
+                images: [
+                    "/coverprojects/Moonlit Heart.png"
+                ]
+            }
+        };
+
+
+
+        // Portfolio filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Project detail view
+            const viewProjectButtons = document.querySelectorAll('.view-project');
+            const projectDetailSection = document.getElementById('project-detail');
+            const portfolioSection = document.getElementById('portfolio');
+            const detailContent = document.getElementById('detail-content');
+            const backToPortfolioButton = document.getElementById('back-to-portfolio');
+            
+            viewProjectButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-project');
+                    const project = projects[projectId];
+                    
+                    // Build project detail HTML
+                    let imagesHtml = '';
+                    project.images.forEach(image => {
+                        imagesHtml += `<div class="col-md-4 mb-4">
+                            <img src="${image}" class="img-fluid rounded" alt="${project.title}">
+                        </div>`;
+                    });
+                    
+                    let skillsHtml = '';
+                    project.skills.forEach(skill => {
+                        skillsHtml += `<span class="skill-badge">${skill}</span>`;
+                    });
+                    
+                    detailContent.innerHTML = `
+                        <h2>${project.title}</h2>
+                        <p class="text-muted">${project.category}</p>
+                        <p class="mt-4">${project.fullDescription}</p>
+                        
+                        <div class="mt-4">
+                            <h5>Skills & Tools</h5>
+                            ${skillsHtml}
+                        </div>
+                        
+                        <div class="mt-5">
+                            <h5>Project Images</h5>
+                            <div class="row mt-3">
+                                ${imagesHtml}
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Show project detail, hide portfolio
+                    portfolioSection.classList.add('d-none');
+                    projectDetailSection.classList.remove('d-none');
+                    
+                    // Scroll to top of detail section
+                    window.scrollTo({
+                        top: projectDetailSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Back to portfolio
+            backToPortfolioButton.addEventListener('click', function() {
+                projectDetailSection.classList.add('d-none');
+                portfolioSection.classList.remove('d-none');
+                
+                // Scroll to portfolio section
+                window.scrollTo({
+                    top: portfolioSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Back to top button
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

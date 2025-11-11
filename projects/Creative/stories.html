@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short Fiction - Read Excerpts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3436;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark-color);
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(108, 92, 231, 0.8), rgba(162, 155, 254, 0.8)), 
+                        url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+        }
+        
+        .story-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .story-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .story-content {
+            padding: 25px;
+        }
+        
+        .story-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .story-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .story-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .btn-primary-custom {
+            background: var(--primary-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary-custom:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-custom:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .pdf-viewer-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .viewer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .badge-genre {
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 50px 0;
+            }
+            
+            .pdf-viewer {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" style="color: var(--primary-color);">
+                <i class="bi bi-pen"></i> StoryTeller
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Short Fiction Collection</h1>
+            <p class="lead mb-4">Explore my collection of short stories and fanfiction pieces</p>
+            <a href="#stories" class="btn btn-light btn-lg px-4">Browse Stories</a>
+            <a href="/index.html" class="btn btn-light btn-lg px-4">Back to home</a>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section id="stories" class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="fw-bold">My Short Stories</h2>
+                <p class="lead">Choose a story to read online or download the PDF version</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- Story 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="story-card">
+                    <div class="story-image" style="background-image: url('/projects/Creative/us\ against\ the\ world.png');"></div>
+                    <div class="story-content">
+                        <h3 class="story-title">Us Against the world</h3>
+                        <div class="story-meta">
+                            <span><i class="bi bi-clock"></i> Total chapter: 25</span>
+                            <span class="badge-genre">fanfiction</span>
+                        </div>
+                        <p class="story-description">Sent away to boarding school by his parents, confident transfer student Nani meets rebellious school president Sky in their final year-what begins as sparks on rooftops and in classrooms grows into a slow-burn romance full of heartbreak, confessions, and the fight for love in a world that won't accept them.</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <button class="btn btn-primary-custom me-md-2" onclick="openPdf('story1')">
+                                <i class="bi bi-file-earmark-pdf"></i> Read PDF
+                            </button>
+                            <a href="https://www.wattpad.com/story/403418687-us-against-the-world-skynani-ff" target="_blank" class="btn btn-outline-custom">
+                                <i class="bi bi-book"></i> Read Online
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Story 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="story-card">
+                    <div class="story-image" style="background-image: url('/projects/Creative/LOVE\ HEALS\ PNG.jpg');"></div>
+                    <div class="story-content">
+                        <h3 class="story-title">Love Heals</h3>
+                        <div class="story-meta">
+                            <span><i class="bi bi-clock"></i> Total chapter: 4 </span>
+                            <span class="badge-genre">Short fanfiction</span>
+                        </div>
+                        <p class="story-description">WARNING:
+
+Boy × Boy
+Violence 
+Angst 
+Romance 
+Fluffy
+Boy×boy
+Trauma
+Suicide
+Happy ending</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <button class="btn btn-primary-custom me-md-2" onclick="openPdf('story2')">
+                                <i class="bi bi-file-earmark-pdf"></i> Read PDF
+                            </button>
+                            <a href="https://www.wattpad.com/story/359910683-%F0%9D%90%8B%F0%9D%90%8E%F0%9D%90%95%F0%9D%90%84-%F0%9D%90%87%F0%9D%90%84%F0%9D%90%80%F0%9D%90%8B%F0%9D%90%92-%F0%9D%90%8E%F0%9D%90%87%F0%9D%90%8C%F0%9D%90%8D%F0%9D%90%80%F0%9D%90%8D%F0%9D%90%8E%F0%9D%90%8D-%F0%9D%90%92%F0%9D%90%87%F0%9D%90%8E%F0%9D%90%93%F0%9D%90%92" target="_blank" class="btn btn-outline-custom">
+                                <i class="bi bi-book"></i> Read Online
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Story 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="story-card">
+                    <div class="story-image" style="background-image: url('/projects/Creative/lost\ and\ found.jpg');"></div>
+                    <div class="story-content">
+                        <h3 class="story-title">Lost and Found</h3>
+                        <div class="story-meta">
+                            <span><i class="bi bi-clock"></i> Total Chapter: 17</span>
+                            <span class="badge-genre">fanfiction</span>
+                        </div>
+                        <p class="story-description">After losing Pat, the love of his life, Pran is shattered. In an attempt to help his friend escape his grief, Chimon came up with the idea to travel to a remote village. But nothing could prepare Pran for the shock of seeing Ohm-a man who looks exactly like Pat.
+
+Who is he? Can Pran cope with the haunting resemblance, or will the past consume him?
+
+Dive into this heart-wrenching tale of loss, mystery, and second chances.</p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <button class="btn btn-primary-custom me-md-2" onclick="openPdf('story3')">
+                                <i class="bi bi-file-earmark-pdf"></i> Read PDF
+                            </button>
+                            <a href="https://www.wattpad.com/story/343985954-lost-and-found-patpran-ff" target="_blank" class="btn btn-outline-custom">
+                                <i class="bi bi-book"></i> Read Online
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PDF Viewer Section -->
+    <section id="pdfViewerSection" class="container" style="display: none;">
+        <div class="pdf-viewer-container">
+            <div class="viewer-header">
+                <h3 id="viewerTitle" class="mb-0">Story PDF Viewer</h3>
+                <button class="btn btn-outline-secondary" onclick="closePdf()">
+                    <i class="bi bi-x-lg"></i> Close Viewer
+                </button>
+            </div>
+            <iframe id="pdfViewer" class="pdf-viewer" src=""></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>About My Writing</h5>
+                    <p>A long-time Wattpad writer, I have spent years sharing stories that explore the balance between love and chaos, earning the hearts of readers who crave emotion, humor, and depth in equal measure.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Connect With Me</h5>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/thecozybookloft_?igsh=aDhja3FwaGF2cHJt"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p>&copy; 2025 StoryTeller. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // PDF files mapping - replace with your actual PDF file paths
+        const pdfFiles = {
+            story1: '/projects/Creative/Us Against the World.pdf',
+            story2: '/projects/Creative/LOVE HEALS.pdf',
+            story3: '/projects/Creative/LOST AND FOUND.pdf'
+        };
+        
+        // Story titles mapping
+        const storyTitles = {
+            story1: 'Us Against the world',
+            story2: 'Love Heals',
+            story3: 'My Healer'
+        };
+        
+        function openPdf(storyId) {
+            // Update the PDF viewer source
+            document.getElementById('pdfViewer').src = pdfFiles[storyId];
+            
+            // Update the viewer title
+            document.getElementById('viewerTitle').textContent = storyTitles[storyId];
+            
+            // Show the PDF viewer section
+            document.getElementById('pdfViewerSection').style.display = 'block';
+            
+            // Scroll to the PDF viewer
+            document.getElementById('pdfViewerSection').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function closePdf() {
+            // Hide the PDF viewer section
+            document.getElementById('pdfViewerSection').style.display = 'none';
+            
+            // Clear the PDF viewer source
+            document.getElementById('pdfViewer').src = '';
+            
+            // Scroll back to the stories section
+            document.getElementById('stories').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

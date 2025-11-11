@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editing Portfolio | GirisaaPriyadharsini</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.85) !important;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px;
+            margin: 0 0.2rem;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2530 100%);
+            color: white;
+            padding: 120px 0 100px;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-section .lead {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .section-padding {
+    padding: 4rem 0;
+}
+        
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        /* Cards */
+        .video-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            overflow: hidden;
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .video-thumbnail {
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+        
+        .video-card:hover .video-thumbnail {
+            transform: scale(1.03);
+        }
+        
+        .card-body {
+            padding: 1.5rem !important;
+            display: flex;
+            flex-direction: column;
+            height: calc(100% - 220px);
+        }
+        
+        .card-title {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+        
+        .card-text {
+            color: var(--light-text);
+            flex-grow: 1;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+        
+        /* Skill Badges */
+        .skill-badge {
+            display: inline-block;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-weight: 500;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        /* Buttons */
+        .btn-primary-custom {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+            color: white;
+        }
+        
+        .btn-outline-custom {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-outline-custom:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        
+        .social-icon.youtube {
+            background-color: #FF0000;
+        }
+        
+        .social-icon.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Filter Buttons */
+        .filter-buttons {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        
+        .filter-btn {
+            background: none;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            padding: 10px 24px;
+            border-radius: 30px;
+            margin: 0 6px 12px;
+            transition: var(--transition);
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+        
+        /* Video Detail Section */
+        .video-detail-section {
+            display: none;
+            margin-top: 2rem;
+        }
+        
+        .video-player-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .video-detail-content {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 2.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-social-links a {
+            color: white;
+            font-size: 1.3rem;
+            margin: 0 12px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-social-links a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        /* Utility Classes */
+        .bg-light-custom {
+            background-color: var(--light-bg);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Grid and Spacing */
+        .container {
+            max-width: 1200px;
+        }
+        
+        .row.g-4 {
+            margin: 0 -15px;
+        }
+        
+        .col-md-6, .col-lg-4 {
+            padding: 15px;
+        }
+        
+        /* Video Actions */
+        .video-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0 60px;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.25rem;
+            }
+            
+            .card-body {
+                padding: 1.25rem !important;
+            }
+            
+            .filter-btn {
+                padding: 8px 20px;
+                margin: 0 4px 8px;
+                font-size: 0.9rem;
+            }
+            
+            .video-detail-content {
+                padding: 1.5rem;
+            }
+            
+            .video-actions {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+        
+        /* Smooth transitions for all interactive elements */
+        a, button, .btn {
+            transition: var(--transition);
+        }
+        
+        /* Video Thumbnail Overlay */
+        .video-thumbnail-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .play-button-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.7);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .video-card:hover .play-button-overlay {
+            opacity: 1;
+        }
+        
+        /* Custom Video Player */
+        .custom-video-player {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        /* Video Grid in Detail View */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .grid-video-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">M.Girisaa Priyadharsini</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/projects/videoedit/video.html">Video Portfolio</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Video Editing Portfolio</h1>
+            <p class="lead mb-4">Showcasing my creative work in cinematic edits, visual composition, and storytelling</p>
+            <a href="#portfolio" class="btn btn-primary-custom">View Portfolio</a>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding bg-light-custom">
+        <div class="container">
+            <h2 class="section-title text-center">My Video Projects</h2>
+            
+            <!-- Portfolio Grid -->
+            <div class="row g-4 portfolio-grid">
+                <!-- Video 1 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="fan-edits cinematic">
+                    <div class="video-card">
+                        <div class="video-thumbnail-container">
+                            <img src="/videos/vdo thumnail/1.png" class="video-thumbnail" alt="Fantasy Movie Fan Edit">
+                            <div class="play-button-overlay">
+                                <i class="bi bi-play-fill"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Cinematic Romantic Fan Edit</h4>
+                            <p class="card-text">A fast-paced, emotionally driven cinematic fan edit that highlights a romantic arc through dynamic pacing, smooth transitions, and lyric-synced typography.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Alightmotion</span>
+                                <span class="skill-badge">Color Grading</span>
+                                <span class="skill-badge">Inshot</span>
+                                <span class="skill-badge">Kinetic Typography</span>
+                                <span class="skill-badge">Dynamic Pacing</span>
+                                <span class="skill-badge">Transitions</span>
+                                <span class="skill-badge">Emotional Storytelling</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn btn-primary-custom view-video" data-video="1">View Video Details</button>
+                                <div class="social-icons">
+                                    <a href="www.youtube.com/@bl_world_tn247" class="social-icon youtube" title="Watch on YouTube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/bl_world_tn/" class="social-icon instagram" title="View on Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="visual-composition">
+                    <div class="video-card">
+                        <div class="video-thumbnail-container">
+                            <img src="/videos/vdo thumnail/2.png" class="video-thumbnail" alt="Visual Composition Showcase">
+                            <div class="play-button-overlay">
+                                <i class="bi bi-play-fill"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Emotional Narrative Montage</h4>
+                            <p class="card-text">A character-driven cinematic montage exploring forbidden love through emotional dialogue, music, and moody visual storytelling.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Alightmotion</span>
+                                <span class="skill-badge">Color Grading</span>
+                                <span class="skill-badge">Mood Setting</span>
+                                <span class="skill-badge">Dialogue Sync</span>
+                                <span class="skill-badge">Emotional Pacing</span>
+                                <span class="skill-badge">Cinematic Look</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn btn-primary-custom view-video" data-video="2">View Video Details</button>
+                                <div class="social-icons">
+                                    <a href="www.youtube.com/@bl_world_tn247" class="social-icon youtube" title="Watch on YouTube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/bl_world_tn/" class="social-icon instagram" title="View on Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 
+                <!-- Video 3 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="visual-composition">
+                    <div class="video-card">
+                        <div class="video-thumbnail-container">
+                            <img src="/videos/vdo thumnail/3.png" class="video-thumbnail" alt="Visual Composition Showcase">
+                            <div class="play-button-overlay">
+                                <i class="bi bi-play-fill"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Romantic  vintage-styled Edit</h4>
+                            <p class="card-text">A joyful, vintage-styled romantic edit with soft-focus visuals and rhythmic cuts synced to an upbeat Tamil track.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Alightmotion</span>
+                                <span class="skill-badge">Vintage Aesthetic</span>
+                                <span class="skill-badge">Soft Focus Filter</span>
+                                <span class="skill-badge">Rhythmic Pacing</span>
+                                <span class="skill-badge">Jump Cuts</span>
+                                <span class="skill-badge">Mood Enhancement</span>
+
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn btn-primary-custom view-video" data-video="3">View Video Details</button>
+                                <div class="social-icons">
+                                    <a href="www.youtube.com/@bl_world_tn247" class="social-icon youtube" title="Watch on YouTube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/bl_world_tn/" class="social-icon instagram" title="View on Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <!-- Video 4 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="visual-composition">
+                    <div class="video-card">
+                        <div class="video-thumbnail-container">
+                            <img src="/videos/vdo thumnail/4.png" class="video-thumbnail" alt="Visual Composition Showcase">
+                            <div class="play-button-overlay">
+                                <i class="bi bi-play-fill"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Trauma & Memory Edit</h4>
+                            <p class="card-text">A tense, dialogue-driven montage that builds emotional conflict through dramatic pacing and carefully intercut character moments.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Alightmotion</span>
+                                <span class="skill-badge">Emotional Pacing</span>
+                                <span class="skill-badge">Trauma Narration</span>
+                                <span class="skill-badge">Flashback Editing</span>
+                                <span class="skill-badge">Motion Graphics</span>
+                                <span class="skill-badge">Dramatic Color Grading</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn btn-primary-custom view-video" data-video="4">View Video Details</button>
+                                <div class="social-icons">
+                                    <a href="www.youtube.com/@bl_world_tn247" class="social-icon youtube" title="Watch on YouTube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/bl_world_tn/" class="social-icon instagram" title="View on Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <!-- Video 5 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="visual-composition">
+                    <div class="video-card">
+                        <div class="video-thumbnail-container">
+                            <img src="/videos/vdo thumnail/5.png" class="video-thumbnail" alt="Visual Composition Showcase">
+                            <div class="play-button-overlay">
+                                <i class="bi bi-play-fill"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Trauma and Solace</h4>
+                            <p class="card-text">A psychological, emotionally intense montage portraying a trauma victim’s struggle and his gradual journey toward safety and love.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Alightmotion</span>
+                                <span class="skill-badge">Color Theory</span>
+                                <span class="skill-badge">Psychological Visualization</span>
+                                <span class="skill-badge">Trauma Narration</span>
+                                <span class="skill-badge">Motion Graphics</span>
+                                <span class="skill-badge">Intimacy Pacing</span>
+                                <span class="skill-badge">Advanced Compositing</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn btn-primary-custom view-video" data-video="5">View Video Details</button>
+                                <div class="social-icons">
+                                    <a href="www.youtube.com/@bl_world_tn247" class="social-icon youtube" title="Watch on YouTube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/bl_world_tn/" class="social-icon instagram" title="View on Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <!-- Video 6 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="visual-composition">
+                    <div class="video-card">
+                        <div class="video-thumbnail-container">
+                            <img src="/videos/vdo thumnail/6.png" class="video-thumbnail" alt="Visual Composition Showcase">
+                            <div class="play-button-overlay">
+                                <i class="bi bi-play-fill"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Action-Romance Contrast Edit</h4>
+                            <p class="card-text">A dynamic edit contrasting a mafia king’s cold power with his vulnerable, love-struck side through sharp visual and tonal shifts.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Alightmotion</span>
+                                <span class="skill-badge">Thematic Contrast</span>
+                                <span class="skill-badge">Dual Pacing</span>
+                                <span class="skill-badge">Color Separation</span>
+                                <span class="skill-badge">Action Editing</span>
+                                <span class="skill-badge">Intimate Pacing</span>
+                                <span class="skill-badge">Character Study</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn btn-primary-custom view-video" data-video="6">View Video Details</button>
+                                <div class="social-icons">
+                                    <a href="www.youtube.com/@bl_world_tn247" class="social-icon youtube" title="Watch on YouTube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/bl_world_tn/" class="social-icon instagram" title="View on Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <!-- Video 7 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="visual-composition">
+                    <div class="video-card">
+                        <div class="video-thumbnail-container">
+                            <img src="/videos/vdo thumnail/7.png" class="video-thumbnail" alt="Visual Composition Showcase">
+                            <div class="play-button-overlay">
+                                <i class="bi bi-play-fill"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Emotional Dialogue Montage</h4>
+                            <p class="card-text">A high-impact tragic montage built around powerful dialogue, contrasting intimacy with despair to illustrate fear, self-sabotage, and sacrifice.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Alightmotion</span>
+                                <span class="skill-badge">CapCut</span>
+                                <span class="skill-badge">Dialogue Editing</span>
+                                <span class="skill-badge">Tension Building</span>
+                                <span class="skill-badge">Rhythmic Pacing</span>
+                                <span class="skill-badge">Juxtaposition</span>
+                                <span class="skill-badge">Emotional Color Grading</span>
+                                <span class="skill-badge">Visual Storytelling</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn btn-primary-custom view-video" data-video="7">View Video Details</button>
+                                <div class="social-icons">
+                                    <a href="www.youtube.com/@bl_world_tn247" class="social-icon youtube" title="Watch on YouTube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/bl_world_tn/" class="social-icon instagram" title="View on Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <!-- Video 8 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="visual-composition">
+                    <div class="video-card">
+                        <div class="video-thumbnail-container">
+                            <img src="/videos/vdo thumnail/8.png" class="video-thumbnail" alt="Visual Composition Showcase">
+                            <div class="play-button-overlay">
+                                <i class="bi bi-play-fill"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Unspoken Love & Nostalgia</h4>
+                            <p class="card-text">A romantic tension edit blending emotional subtext, nostalgic visuals, and smooth pacing to highlight unspoken feelings.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Alightmotion</span>
+                                <span class="skill-badge">CapCut</span>
+                                <span class="skill-badge">Emotional Subtext</span>
+                                <span class="skill-badge">Thematic Color Shift</span>
+                                <span class="skill-badge">Dialogue Integration</span>
+                                <span class="skill-badge">Velocity Edits</span>
+                                <span class="skill-badge">Nostalgic Aesthetic</span>
+                                <span class="skill-badge">Subtle Pacing</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn btn-primary-custom view-video" data-video="8">View Video Details</button>
+                                <div class="social-icons">
+                                    <a href="www.youtube.com/@bl_world_tn247" class="social-icon youtube" title="Watch on YouTube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/bl_world_tn/" class="social-icon instagram" title="View on Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 9 -->
+                <div class="col-lg-4 col-md-6 portfolio-item" data-category="fan-edits">
+                    <div class="video-card">
+                        <div class="video-thumbnail-container">
+                            <img src="/videos/vdo thumnail/9.png" class="video-thumbnail" alt="Sci-Fi Fan Edit">
+                            <div class="play-button-overlay">
+                                <i class="bi bi-play-fill"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Melancholic Edit</h4>
+                            <p class="card-text">An emotional edit using memory fragments, melancholic grading, and deliberate pacing to highlight the pain of a fading relationship.</p>
+                            <div class="mt-3">
+                                <span class="skill-badge">Alightmotion</span>
+                                <span class="skill-badge">CapCut</span>
+                                <span class="skill-badge">Emotional Pacing</span>
+                                <span class="skill-badge">Melancholy Color Grading</span>
+                                <span class="skill-badge">Dialogue Integration</span>
+                                <span class="skill-badge">Visual Memory Framing</span>
+                                <span class="skill-badge">Subtext Editing</span>
+                            </div>
+                            <div class="video-actions">
+                                <button class="btn btn-primary-custom view-video" data-video="9">View Video Details</button>
+                                <div class="social-icons">
+                                    <a href="www.youtube.com/@bl_world_tn247" class="social-icon youtube" title="Watch on YouTube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/bl_world_tn/" class="social-icon instagram" title="View on Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Video Detail Section -->
+    <section id="video-detail" class="section-padding video-detail-section">
+        <div class="container">
+            <button id="back-to-portfolio" class="btn btn-outline-custom mb-4">
+                <i class="fas fa-arrow-left me-2"></i>Back to Portfolio
+            </button>
+            
+            <div class="video-detail-content">
+                <div id="detail-content">
+                    <!-- Video details will be loaded here dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Girisaa Priydadharsini</h5>
+                    <p>Creative Video Editor specializing in fan edits, visual composition, and cinematic storytelling.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Connect With Me</h5>
+                    <div class="footer-social-links mt-3">
+                        <a href="https://www.youtube.com/@bl_world_tn247"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/bl_world_tn/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/girisaa-priyadharsini-m-9624bb2ab/"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="text-center">
+                <p>&copy; 2025 GirisaaPriyadharsini.M . All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Video data
+        const videos = {
+            1: {
+                title: "Cinematic Romantic Fan Edit",
+                category: "Fan Edits / Lyric Video",
+                description: "A fast-paced, emotionally-driven cinematic fan edit highlighting a romantic narrative arc using scenes from a popular movie franchise.",
+                fullDescription: "This edit blends emotional moments and action sequences to focus on the central relationship of the characters. Key techniques demonstrated include <strong>dynamic pacing, smooth transitions, color grading</strong> for a warm, cinematic feel, and <strong>custom kinetic typography (lyric syncing)</strong> to enhance the mood set by the Tamil song's lyrics. The project showcases proficiency in selecting clips and timing cuts precisely to a complex musical structure.",
+                skills: ["Alightmotion", "Inshot", "Color Grading", "Kinetic Typography", "Dynamic Pacing", "Transitions", "Emotional Storytelling"],
+                videoUrls: [
+                    "/videos/1.mp4",
+                ],
+                youtubeUrl: "https://www.youtube.com/@bl_world_tn247",
+                instagramUrl: "https://www.instagram.com/bl_world_tn/",
+                duration: "0:44",
+                aspectRatio: "16:9"
+            },
+            2: {
+                title: "Emotional Narrative Montage",
+                category: "Fan Edits / Cinematic Drama",
+                description: "A character-driven cinematic montage that utilizes dialogue and music to build an emotional narrative centered on forbidden love and internal conflict.",
+                fullDescription: "This project focuses on the powerful use of dialogue and non-verbal cues to convey deep character emotion and tension. The editing style features <strong>slow, deliberate pacing</strong> contrasted with <strong>quick emotional flash-cuts</strong>, demonstrating control over mood. Techniques applied include <strong>advanced color grading</strong> to create a moody, high-contrast, cinematic feel, and <strong>clean typography</strong> for dialogue captions, ensuring maximum emotional impact and legibility. This piece showcases skill in narrative structure and mood setting.",
+                skills: ["Alightmotion", "Color Grading", "Mood Setting", "Dialogue Sync", "Emotional Pacing", "Cinematic Look"],
+                videoUrls: [
+                    "/videos/2.mp4"
+                ],
+                youtubeUrl: "https://www.youtube.com/@bl_world_tn247",
+                instagramUrl: "https://www.instagram.com/bl_world_tn/",
+                duration: "0:43",
+                aspectRatio: "1:1"
+            },
+             3: {
+                title: "Nostalgic Romantic Edit",
+                category: "Fan Edits / Vintage Aesthetic",
+                description: "A bright, joyful montage edited with a <strong>vintage, soft-focus aesthetic</strong> to capture the feeling of first love and romance, perfectly synchronized to an upbeat song.",
+                fullDescription: "This project demonstrates mastery of <strong>visual mood setting</strong> using unique stylistic effects. Key techniques include applying a consistent <strong>soft-focus/vintage filter</strong> (potentially using a glow effect and film grain) to evoke nostalgia. The edit features seamless <strong>rhythmic cutting</strong> and <strong>fast-paced, jump-cut transitions</strong> tightly mapped to the energetic rhythm of the Tamil song. The use of <strong>minimalist typography</strong> for the lyrics ensures the romantic visual mood remains the primary focus. This piece highlights advanced skills in achieving a specific, challenging aesthetic.",
+                skills: ["Alightmotion", "Vintage Aesthetic", "Soft Focus Filter", "Rhythmic Pacing", "Jump Cuts", "Mood Enhancement"],
+                videoUrls: [
+                    "/videos/3.mp4"
+                ],
+                youtubeUrl: "https://www.youtube.com/@bl_world_tn247",
+                instagramUrl: "https://www.instagram.com/bl_world_tn/",
+                duration: "0:38",
+                aspectRatio: "1:1"
+            },
+             4: {
+                title: "Trauma & Memory Edit",
+                category: "Fan Edits / Dramatic Narrative",
+                description: "A highly cinematic montage using dialogue and visual cues to portray a character's (Pran) struggle with memory and the trauma of his loss.",
+                fullDescription: "This project showcases expertise in narrative editing used to evoke complex emotional trauma. The editing intentionally intercuts scenes of current dialogue ('I HAVE NEVER HAD A BOYFRIEND') with flashbacks of the deceased partner (Pat), using <strong>rapid-fire transitions</strong> and <strong>disorienting visual effects</strong> to convey the jarring nature of memory. The use of <strong>minimalist motion graphics</strong> (broken heart) visually symbolizes the enduring grief. <strong>Dramatic color grading</strong> is employed throughout to maintain a heavy, serious mood, highlighting the editor's skill in blending technical execution with deep psychological storytelling.",
+                skills: ["Alightmotion", "Emotional Pacing", "Trauma Narration", "Flashback Editing", "Motion Graphics", "Dramatic Color Grading"],
+                videoUrls: [
+                    "/videos/4.mp4"
+                ],
+                youtubeUrl: "https://www.youtube.com/@bl_world_tn247",
+                instagramUrl: "https://www.instagram.com/bl_world_tn/",
+                duration: "0:33",
+                aspectRatio: "1:1"
+            },
+             5: {
+                title: "Trauma and Solace",
+                category: "Fan Edits / Drama",
+                description: "A deeply emotional montage exploring a trauma victim's struggle with intimacy and his journey toward finding safety and love, communicated through dramatic visual language",
+                fullDescription: "This edit is a powerful exercise in <strong>psychological visualization</strong>, using advanced effects to represent internal turmoil. Key techniques include: <strong>Intense Red Overlays and Motion Blur</strong> to symbolize flashbacks or panic/trauma states; <strong>High-Contrast, Warm Color Grading</strong> in intimate scenes to represent comfort and safety; and <strong>Seamless Cross-Fade Layering</strong> to show the blending of past pain with present solace. The piece demonstrates exceptional skill in using <strong>color theory and visual distortion</strong> to narrate a character's internal, non-verbal struggle with healing from abuse and learning to trust again.",
+                skills: ["Alightmotion", "Color Theory", "Psychological Visualization", "Trauma Narration", "Motion Graphics", "Intimacy Pacing", "Advanced Compositing"],
+                videoUrls: [
+                    "/videos/5.mp4"
+                ],
+                youtubeUrl: "https://www.youtube.com/@bl_world_tn247",
+                instagramUrl: "https://www.instagram.com/bl_world_tn/",
+                duration: "0:41",
+                aspectRatio: "4:3"
+            },
+             6: {
+                title: "Action-Romance Contrast Edit",
+                category: "Fan Edits / Dramatic Character Study",
+                description: "A dynamic edit highlighting the duality of a character—powerful and formidable in the mafia world, yet completely vulnerable when in love—achieved through sharp visual contrasts.",
+                fullDescription: "This project excels in <strong>thematic contrast editing</strong>. The first half utilizes a cool, dark color grade and rapid action cuts to establish the character's dominance ('A king in mafia world'). This is immediately contrasted with soft focus, warm tones, and slow, intimate cuts in the second half ('A fool for his love'). Techniques include <strong>dual-pacing</strong>, specialized <strong>color separation</strong> to demarcate the two sides of his life, and effective <strong>kinetic typography</strong> to underline the dramatic narrative shift. The edit successfully uses visual language to perform a character study.",
+                skills: ["Alightmotion", "Thematic Contrast", "Dual Pacing", "Color Separation", "Action Editing", "Intimate Pacing", "Character Study"],
+                videoUrls: [
+                    "/videos/6.mp4"
+                ],
+                youtubeUrl: "https://www.youtube.com/@bl_world_tn247",
+                instagramUrl: "https://www.instagram.com/bl_world_tn/",
+                duration: "0:22",
+                aspectRatio: "4:3"
+            },
+             7: {
+                title: "Color Grading Masterclass",
+                category: "Fan Edits / Cinematic",
+                description: "A short, high-impact edit centered on a tragic dialogue sequence, using dynamic cutting and visual metaphors to convey self-sabotage, fear, and sacrifice.",
+                fullDescription: "This project showcases the editor's ability to maximize tension and heartbreak within a limited runtime. The editing relies heavily on the <strong>juxtaposition of intimate moments</strong> (kisses, close-ups) <strong>with moments of despair and tragedy</strong> (crying, hospital scenes) to amplify the central conflict. Key technical skills include: <strong>Intense Color Grading</strong> with cool/desaturated tones for heartbreak and bright/warm highlights for fleeting intimacy; <strong>Rhythmic Cut Accelerations</strong> to match the escalating drama of the soundtrack; and the use of <strong>layering/blending effects</strong> (0:54) to symbolize the emotional blending of love and inevitable loss.",
+                skills: ["Alightmotion", "CapCut", "Dialogue Editing", "Tension Building", "Rhythmic Pacing", "Juxtaposition", "Emotional Color Grading", "Visual Storytelling"],
+                videoUrls: [
+                    "/videos/7.mp4"
+                ],
+                youtubeUrl: "https://www.youtube.com/@bl_world_tn247",
+                instagramUrl: "https://www.instagram.com/bl_world_tn/",
+                duration: "1:01",
+                aspectRatio: "16:9"
+            },
+             8: {
+                title: "Unspoken Love & Nostalgia:",
+                category: "Fan Edits / Romantic Tension",
+                description: "An emotionally resonant montage contrasting moments of lighthearted friendship with the heavy reality of unrequited or unspoken romantic feelings, set to a melancholy song.",
+                fullDescription: "This project demonstrates mastery in editing <strong>subtext and emotional conflict</strong>. The video effectively uses the song to narrate the internal struggle of the characters. Key technical skills include: <strong>Thematic Color Shift</strong> (switching between the dark, intimate blue of night and the bright, warm tones of nostalgic flashbacks) to separate reality from memory; <strong>Seamless Layering of Dialogue</strong> and song lyrics to enhance the internal monologue; and <strong>Smooth Velocity Edits</strong> applied to specific scenes to make emotional moments feel dynamic and impactful. The edit proves proficiency in visual storytelling centered on character perspective.",
+                skills: ["Alightmotion", "CapCut", "Emotional Subtext", "Thematic Color Shift", "Dialogue Integration", "Velocity Edits", "Nostalgic Aesthetic", "Subtle Pacing"],
+                videoUrls: [
+                    "/videos/8.mp4"
+                ],
+                youtubeUrl: "https://www.youtube.com/@bl_world_tn247",
+                instagramUrl: "https://www.instagram.com/bl_world_tn/",
+                duration: "0:44",
+                aspectRatio: "1:1"
+            },
+            9: {
+                title: "Melancholic Edit",
+                category: "Fan Edits / Emotional Heartbreak",
+                description: "A focused montage built around a specific dialogue, using music and memory fragments to illustrate the acute pain of a fading relationship and the importance of shared moments.",
+                fullDescription: "This project excels in conveying <strong>raw heartbreak</strong> by anchoring the entire edit to a single, poignant memory (the song). Technical mastery is shown through the use of <strong>melancholy color grading</strong> (dark shadows, muted colors, warm bokeh effects) to create a serious, reflective mood. The edit uses <strong>deliberate visual pacing</strong>—allowing the camera to linger on the character's pained expression—to convey subtext and emotion, followed by quick flashes of happy past moments. The synchronized use of a Tamil heartbreak song effectively amplifies the character's internal monologue, demonstrating skill in <strong>audio-visual integration for drama</strong>.",
+                skills: ["Alightmotion", "CapCut", "Emotional Pacing", "Melancholy Color Grading", "Dialogue Integration", "Visual Memory Framing", "Subtext Editing"],
+                videoUrls: [
+                    "/videos/9.mp4"
+                ],
+                youtubeUrl: "https://www.youtube.com/@bl_world_tn247",
+                instagramUrl: "https://www.instagram.com/bl_world_tn/",
+                duration: "0:39",
+                aspectRatio: "4:5"
+            }
+        };
+
+        // Portfolio filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'block';
+                        } else {
+                            const categories = item.getAttribute('data-category').split(' ');
+                            if (categories.includes(filterValue)) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Video detail view
+            const viewVideoButtons = document.querySelectorAll('.view-video');
+            const videoDetailSection = document.getElementById('video-detail');
+            const portfolioSection = document.getElementById('portfolio');
+            const detailContent = document.getElementById('detail-content');
+            const backToPortfolioButton = document.getElementById('back-to-portfolio');
+            
+            viewVideoButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const videoId = this.getAttribute('data-video');
+                    const video = videos[videoId];
+                    
+                    // Build video detail HTML
+                    let skillsHtml = '';
+                    video.skills.forEach(skill => {
+                        skillsHtml += `<span class="skill-badge">${skill}</span>`;
+                    });
+                    
+                    // Create video players for each video URL
+                    let videoPlayersHtml = '';
+                    if (video.videoUrls && video.videoUrls.length > 0) {
+                        videoPlayersHtml = `
+                            <div class="mb-5">
+                                <h4>Video Showcase</h4>
+                                <div class="video-grid">
+                        `;
+                        
+                        video.videoUrls.forEach((url, index) => {
+                            videoPlayersHtml += `
+                                <div class="grid-video-item">
+                                    <video class="custom-video-player" controls>
+                                        <source src="${url}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            `;
+                        });
+                        
+                        videoPlayersHtml += `</div></div>`;
+                    }
+                    
+                    detailContent.innerHTML = `
+                        <h2>${video.title}</h2>
+                        <p class="text-muted">${video.category} • ${video.duration} • ${video.aspectRatio}</p>
+                        <p class="mt-4">${video.fullDescription}</p>
+                        
+                        ${videoPlayersHtml}
+                        
+                        <div class="mt-4">
+                            <h5>Skills & Tools</h5>
+                            ${skillsHtml}
+                        </div>
+                        
+                        <div class="mt-5">
+                            <h5>Watch on Platforms</h5>
+                            <div class="mt-3">
+                                <a href="${video.youtubeUrl}" class="btn btn-primary-custom me-3" target="_blank">
+                                    <i class="fab fa-youtube me-2"></i>Watch on YouTube
+                                </a>
+                                <a href="${video.instagramUrl}" class="btn btn-outline-custom" target="_blank">
+                                    <i class="fab fa-instagram me-2"></i>View on Instagram
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Show video detail, hide portfolio
+                    portfolioSection.classList.add('d-none');
+                    videoDetailSection.style.display = 'block';
+                    
+                    // Scroll to top of detail section
+                    window.scrollTo({
+                        top: videoDetailSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Back to portfolio
+            backToPortfolioButton.addEventListener('click', function() {
+                videoDetailSection.style.display = 'none';
+                portfolioSection.classList.remove('d-none');
+                
+                // Scroll to portfolio section
+                window.scrollTo({
+                    top: portfolioSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Back to top button
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
