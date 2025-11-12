@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueBeez Company Website - Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        :root {
+        --primary-color: #4e73df;
+        --secondary-color: #6c757d;
+        --accent-color: #36b9cc;
+        --light-bg: #f8f9fc;
+        --dark-text: #2e3a59;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, #1a56db, #7e3af2);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tech-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        
+        .diagram-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .back-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: #7b1fa2;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 600;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .nav-tabs .nav-link {
+            color: var(--secondary-color);
+        }
+        
+        .table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .highlight-box {
+            background-color: #bbc4f863;
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .architecture-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .architecture-box h5 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Swiper Styles */
+        .swiper-container {
+            width: 100%;
+            height: 400px;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .swiper-slide {
+            text-align: center;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .swiper-slide img:hover {
+            transform: scale(1.02);
+        }
+        
+        .swiper-slide .card-body {
+            padding: 15px;
+        }
+        
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            margin-top: -25px;
+        }
+        
+        .swiper-button-next {
+            right: 10px;
+        }
+        
+        .swiper-button-prev {
+            left: 10px;
+        }
+        
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: var(--primary-color);
+        }
+        
+        .swiper-grid-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        /* Modal Styles */
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .screenshot-placeholder {
+            background: linear-gradient(45deg, #bbebf8, #e1bee7);
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-text);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .bluebeez-primary {
+            color: #1a56db;
+        }
+        
+        .bluebeez-gradient {
+            background: linear-gradient(135deg, #1a56db, #7e3af2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="project-header text-center">
+        <div class="container">
+            <span class="badge bg-light bluebeez-primary mb-3">Startup Company Project</span>
+            <h1 class="display-4 fw-bold">BlueBeez Company Website</h1>
+            <p class="lead mb-4">A Modern, Responsive Website for a Business Technology Startup</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="/index.html" class="btn btn-light btn-lg">
+                    <i class="bi bi-arrow-left me-2"></i>Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Project Overview -->
+        <section class="mb-5">
+            <h2 class="section-title">Project Overview</h2>
+            
+            <!-- Image Swiper/Carousel -->
+<div class="swiper-grid-container">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Slide 1: Home Page -->
+            <div class="swiper-slide">
+                <div class="card border-0 h-100">
+                    <img src="/projects/Featured Tech Projects/digitalstore images/bluebeez/home.png" class="card-img-top" alt="BlueBeez Home Page">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Home Page</h6>
+                        <p class="card-text text-muted small">Welcoming banner with company mission and navigation</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2: Services Section -->
+            <div class="swiper-slide">
+                <div class="card border-0 h-100">
+                    <img src="/projects/Featured Tech Projects/digitalstore images/bluebeez/sevices.png" class="card-img-top" alt="Services Section">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Services Section</h6>
+                        <p class="card-text text-muted small">Overview of business solutions and technology services</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3: Team Section -->
+            <div class="swiper-slide">
+                <div class="card border-0 h-100">
+                    <img src="/projects/Featured Tech Projects/digitalstore images/bluebeez/team.png" class="card-img-top" alt="Team Section">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Team Section</h6>
+                        <p class="card-text text-muted small">Showcase of company leadership and team members</p>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Slide 4: FAQ Section -->
+            <div class="swiper-slide">
+                <div class="card border-0 h-100">
+                    <img src="/projects/Featured Tech Projects/digitalstore images/bluebeez/faq.png" class="card-img-top" alt="Team Section">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">FAQ</h6>
+                        <p class="card-text text-muted small">FAQ section offers answers to the most common inquiries.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 5: Internships -->
+            <div class="swiper-slide">
+                <div class="card border-0 h-100">
+                    <img src="/projects/Featured Tech Projects/digitalstore images/bluebeez/intern.png" class="card-img-top" alt="Internships Section">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Internships Section</h6>
+                        <p class="card-text text-muted small">Career opportunities and internship programs</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 6: contact -->
+            <div class="swiper-slide">
+                <div class="card border-0 h-100">
+                    <img src="/projects/Featured Tech Projects/digitalstore images/bluebeez/contact.png" class="card-img-top" alt="Technologies Section">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Contact Section</h6>
+                        <p class="card-text text-muted small">Contact form</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="lead">BlueBeez is a modern, fully responsive frontend website for a technology startup focused on empowering businesses with innovative solutions. This project showcases my ability to create professional corporate websites with clean design, intuitive navigation, and mobile responsiveness.</p>
+                    
+                    <div class="highlight-box">
+                        <h5>Key Features</h5>
+                        <ul class="feature-list">
+                            <li>Fully responsive design for all device sizes</li>
+                            <li>Modern corporate design with BlueBeez branding</li>
+                            <li>Interactive navigation and smooth scrolling</li>
+                            <li>Company services showcase with icons</li>
+                            <li>Team member profiles with hover effects</li>
+                            <li>Internship and career opportunity sections</li>
+                            <li>Technology stack showcase</li>
+                            <li>Optimized for fast loading and performance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Project Details</h5>
+                            <p><strong>Duration:</strong> 3 Weeks</p>
+                            <p><strong>Role:</strong> Frontend Developer & Designer</p>
+                            <p><strong>Status:</strong> Completed</p>
+                            <p><strong>Type:</strong> Static Corporate Website</p>
+                            
+                            <h6 class="mt-4">Technologies Used</h6>
+                            <div class="mt-2">
+                                <span class="tech-badge">HTML5</span>
+                                <span class="tech-badge">CSS3</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">Bootstrap</span>
+                                <span class="tech-badge">jQuery</span>
+                                <span class="tech-badge">Font Awesome</span>
+                                <span class="tech-badge">Google Fonts</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <section class="mb-5">
+            <ul class="nav nav-tabs" id="projectTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab">Project Overview</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="design-tab" data-bs-toggle="tab" data-bs-target="#design" type="button" role="tab">Design & Features</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="implementation-tab" data-bs-toggle="tab" data-bs-target="#implementation" type="button" role="tab">Implementation</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="responsive-tab" data-bs-toggle="tab" data-bs-target="#responsive" type="button" role="tab">Responsive Design</button>
+                </li>
+            </ul>
+            
+            <div class="tab-content p-4 border border-top-0 rounded-bottom" id="projectTabsContent">
+                <!-- Overview Tab -->
+                <div class="tab-pane fade show active" id="overview" role="tabpanel">
+                    <h3 class="mb-4">Project Overview</h3>
+                    
+                    <p>The BlueBeez Company Website project was developed to create a professional online presence for a technology startup focused on business solutions. The goal was to design and implement a modern, responsive website that effectively communicates the company's mission, services, and values while providing an excellent user experience across all devices.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="architecture-box">
+                                <h5><i class="bi bi-check-circle text-success me-2"></i>Project Objectives</h5>
+                                <p>Create a visually appealing corporate website that establishes credibility, showcases services, attracts talent through internship programs, and provides clear contact information for potential clients.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="architecture-box">
+                                <h5><i class="bi bi-check-circle text-success me-2"></i>Target Audience</h5>
+                                <p>Small to medium businesses looking for technology solutions, potential employees and interns interested in joining the company, and partners seeking collaboration opportunities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box mt-4">
+                        <h5>Website Structure</h5>
+                        <p>The website is organized into clear, professional sections that guide visitors through the company offerings:</p>
+                        <ul>
+                            <li><strong>Hero Section:</strong> Eye-catching banner with company name, tagline, and primary call-to-action</li>
+                            <li><strong>About Us:</strong> Company mission, vision, and values</li>
+                            <li><strong>Services:</strong> Overview of business solutions and technology services</li>
+                            <li><strong>Team:</strong> Introduction to company leadership and key team members</li>
+                            <li><strong>Internships:</strong> Career opportunities and internship programs</li>
+                            <li><strong>Technologies:</strong> Showcase of platforms and technologies used</li>
+                            <li><strong>Contact:</strong> Contact form and business information</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Design & Features Tab -->
+                <div class="tab-pane fade" id="design" role="tabpanel">
+                    <h3 class="mb-4">Design & Features</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title bluebeez-primary">Visual Design</h5>
+                                    <p class="card-text">The website features a professional blue and purple color scheme that reflects the BlueBeez brand identity. Clean typography, ample white space, and modern UI elements create a trustworthy corporate appearance that inspires confidence in the company's services.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title bluebeez-primary">User Experience</h5>
+                                    <p class="card-text">Intuitive navigation with a sticky header, clear information hierarchy, and strategically placed call-to-action buttons ensures visitors can easily find relevant information and understand the company's value proposition.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title bluebeez-primary">Interactive Elements</h5>
+                                    <p class="card-text">Smooth scrolling navigation, hover effects on team member cards, animated transitions between sections, and a functional contact form with validation enhance user engagement and provide a polished experience.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title bluebeez-primary">Content Strategy</h5>
+                                    <p class="card-text">Well-structured sections with clear headings, concise copy, and strategic use of icons and imagery create a compelling narrative about the company's mission and capabilities while maintaining professional tone.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>Visual Elements</h5>
+                            <ul>
+                                <li>Professional blue and purple color scheme</li>
+                                <li>Clean, modern typography hierarchy</li>
+                                <li>Strategic use of whitespace for readability</li>
+                                <li>Consistent branding throughout</li>
+                                <li>Professional imagery and icons</li>
+                                <li>Accessible color contrasts</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Interactive Features</h5>
+                            <ul>
+                                <li>Smooth scrolling between sections</li>
+                                <li>Hover effects on team member cards</li>
+                                <li>Form validation with user feedback</li>
+                                <li>Responsive navigation menu</li>
+                                <li>Animated transitions</li>
+                                <li>Interactive service cards</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Implementation Tab -->
+                <div class="tab-pane fade" id="implementation" role="tabpanel">
+                    <h3 class="mb-4">Implementation Details</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Frontend Technologies</h5>
+                            <ul>
+                                <li><strong>HTML5:</strong> Semantic markup with proper structure and accessibility features</li>
+                                <li><strong>CSS3:</strong> Modern styling with Flexbox, Grid, animations, and transitions</li>
+                                <li><strong>JavaScript:</strong> Interactive features, form validation, and smooth scrolling</li>
+                                <li><strong>Bootstrap:</strong> Responsive grid system and UI components</li>
+                                <li><strong>jQuery:</strong> Simplified DOM manipulation and event handling</li>
+                            </ul>
+                            
+                            <h5 class="mt-4">Development Approach</h5>
+                            <ul>
+                                <li>Mobile-first responsive design</li>
+                                <li>Component-based development</li>
+                                <li>Cross-browser compatibility testing</li>
+                                <li>Performance optimization</li>
+                                <li>Clean, maintainable code structure</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Key Implementation Features</h5>
+                            <ul>
+                                <li><strong>Responsive Navigation:</strong> Collapsible navbar for mobile devices</li>
+                                <li><strong>Team Section:</strong> Interactive team member cards with hover effects</li>
+                                <li><strong>Services Showcase:</strong> Icon-based service descriptions with animations</li>
+                                <li><strong>Form Validation:</strong> Client-side validation for the contact form</li>
+                                <li><strong>Smooth Scrolling:</strong> Animated navigation between page sections</li>
+                                <li><strong>Typography:</strong> Carefully selected fonts that enhance professionalism</li>
+                            </ul>
+                            
+                            <h5 class="mt-4">Code Quality</h5>
+                            <ul>
+                                <li>Semantic HTML structure</li>
+                                <li>Organized CSS with consistent naming conventions</li>
+                                <li>Modular JavaScript functions</li>
+                                <li>Comments for complex code sections</li>
+                                <li>Proper file organization</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5>Performance Optimization</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-lightning-charge display-4 bluebeez-primary"></i>
+                                        <h6 class="mt-2">Fast Loading</h6>
+                                        <p class="small">Optimized assets and efficient code</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-phone display-4 bluebeez-primary"></i>
+                                        <h6 class="mt-2">Mobile First</h6>
+                                        <p class="small">Designed for mobile then enhanced</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-browser-chrome display-4 bluebeez-primary"></i>
+                                        <h6 class="mt-2">Cross-Browser</h6>
+                                        <p class="small">Compatible with all modern browsers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Responsive Design Tab -->
+                <div class="tab-pane fade" id="responsive" role="tabpanel">
+                    <h3 class="mb-4">Responsive Design Implementation</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-phone display-4 bluebeez-primary mb-3"></i>
+                                    <h5 class="card-title">Mobile Design</h5>
+                                    <p class="card-text">Optimized for smartphones with stacked layouts, touch-friendly buttons, hamburger menu, and simplified content presentation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-tablet display-4 bluebeez-primary mb-3"></i>
+                                    <h5 class="card-title">Tablet Design</h5>
+                                    <p class="card-text">Adaptive layouts that make the most of medium-sized screens with appropriate font sizes, spacing, and two-column layouts where suitable.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card feature-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-laptop display-4 bluebeez-primary mb-3"></i>
+                                    <h5 class="card-title">Desktop Design</h5>
+                                    <p class="card-text">Full-featured experience with multi-column layouts, hover effects, enhanced navigation, and detailed content presentation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>Responsive Techniques</h5>
+                            <ul>
+                                <li><strong>Fluid Layouts:</strong> Percentage-based widths and max-width properties</li>
+                                <li><strong>Media Queries:</strong> Breakpoints for different screen sizes</li>
+                                <li><strong>Flexible Images:</strong> Images that scale appropriately with container size</li>
+                                <li><strong>Mobile-First Approach:</strong> Designing for mobile first then enhancing for larger screens</li>
+                                <li><strong>Viewport Meta Tag:</strong> Proper configuration for device scaling</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Breakpoints Used</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th>Device Type</th>
+                                            <th>Breakpoint</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Mobile</td>
+                                            <td>Up to 767px</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tablet</td>
+                                            <td>768px - 991px</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Small Desktop</td>
+                                            <td>992px - 1199px</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Large Desktop</td>
+                                            <td>1200px and above</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box mt-4">
+                        <h5>Responsive Design Philosophy</h5>
+                        <p>The website was built with a mobile-first approach, ensuring that the core content and functionality work perfectly on small screens. As screen size increases, additional layout complexity and visual enhancements are progressively added. This approach guarantees that all users receive an optimal viewing experience regardless of their device, which is crucial for a corporate website that needs to maintain professionalism across all platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Demonstrated -->
+        <section class="mb-5">
+            <h2 class="section-title">Skills Demonstrated</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card feature-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Technical Skills</h5>
+                            <ul>
+                                <li>HTML5 Semantic Markup</li>
+                                <li>CSS3 Styling and Layouts (Flexbox, Grid)</li>
+                                <li>Responsive Web Design</li>
+                                <li>JavaScript Interactivity</li>
+                                <li>Cross-Browser Compatibility</li>
+                                <li>Performance Optimization</li>
+                                <li>Bootstrap Framework</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card feature-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Design Skills</h5>
+                            <ul>
+                                <li>Corporate Web Design</li>
+                                <li>User Experience Principles</li>
+                                <li>Color Theory and Branding</li>
+                                <li>Visual Hierarchy</li>
+                                <li>Mobile-First Design</li>
+                                <li>Accessibility Considerations</li>
+                                <li>Professional Aesthetics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">BlueBeez Company Website Project &copy; 2025 | Frontend Development Project</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+            }
+        });
+
+        // Add click event to show full image in modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.swiper-slide img');
+            
+            images.forEach(img => {
+                img.addEventListener('click', function() {
+                    const modal = new bootstrap.Modal(document.getElementById('imageModal'));
+                    const modalImage = document.getElementById('modalImage');
+                    const modalTitle = document.getElementById('modalTitle');
+                    
+                    modalImage.src = this.src;
+                    modalTitle.textContent = this.alt;
+                    
+                    modal.show();
+                });
+            });
+        });
+    </script>
+    
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Image Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="modalImage" class="modal-image" src="" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
